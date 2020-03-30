@@ -1,4 +1,4 @@
-![Bridgeworx Logo](https://github.com/williammcintosh/williammcintosh.github.io/blob/master/image%20(4).png)
+![Bridgeworx Logo](/BridgeworxLogo.png)
 
 ## Welcome to Bridgeworx Games
 
