@@ -1,37 +1,12 @@
-## Welcome to GitHub Pages
+## Welcome to Bridgeworx Games
 
-You can use the [editor on GitHub](https://github.com/williammcintosh/williammcintosh.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Our mission is to build tools that help people build bridges. Our ultimate goal is develop couch co-op games that build memories and relationships. Currently, our only completed project is Farmyard Feeder.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I keep wanting to say "we" but it's honestly just myself. I have big aspirations though!
 
-### Markdown
+### Links About Bridgeworx
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[You can check out my LinkedIn profile here.](https://www.linkedin.com/in/william-mcintosh-7a080351/).
 
-```markdown
-Syntax highlighted code block
+[Here are the videos I've been making on.](https://www.youtube.com/channel/UC4FZcQOejhSe9MbgDCo7dpg/videos?view_as=subscriber) yet these are primarily focusing on the next couch co-op game we're planning.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/williammcintosh/williammcintosh.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
