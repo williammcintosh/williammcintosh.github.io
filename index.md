@@ -14,3 +14,4 @@ You can email me at bridgeworxgames@gmail.com if you have any questions on my ap
 
 [Here are the videos I've been making on](https://www.youtube.com/channel/UC4FZcQOejhSe9MbgDCo7dpg/videos?view_as=subscriber), yet these are primarily focusing on the next couch co-op game we're planning.
 
+If you have questions about the privacy policies of our games, please refer to [Unity's privacy policy](https://unity3d.com/legal/privacy-policy), specifically under the section labeled "I play a game built with Unity software, what should I know?".
