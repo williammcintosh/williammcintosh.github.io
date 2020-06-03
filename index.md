@@ -10,7 +10,7 @@ I keep wanting to say "our" but it's honestly just myself. I have big aspiration
 
 You can email me at bridgeworxgames@gmail.com if you have any questions on my app, or about life in general.
 
-[Here is a link to FarmYard Feeder] (https://apps.apple.com/us/app/farmyard-feeder/id1505114076) a children's counting game that I made!
+[Here is a link to FarmYard Feeder](https://apps.apple.com/us/app/farmyard-feeder/id1505114076) a children's counting game that I made!
 
 [You can check out my LinkedIn profile here](https://www.linkedin.com/in/william-mcintosh-7a080351/).
 
