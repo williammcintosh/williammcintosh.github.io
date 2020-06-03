@@ -1,4 +1,4 @@
-# williammcintosh.github.io
+# Will McIntosh
 Bridgeworx Games
 
 My name is Will McIntosh. I'm a Computer Science Student at Portland State University.
