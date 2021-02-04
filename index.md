@@ -10,10 +10,15 @@ I keep wanting to say "our" but it's honestly just myself. I have big aspiration
 
 You can email me at bridgeworxgames@gmail.com if you have any questions on my app, or about life in general.
 
-[Here is a link to FarmYard Feeder](https://apps.apple.com/us/app/farmyard-feeder/id1505114076) a children's counting game that I made!
+[Here is a link to FarmYard Feeder](https://apps.apple.com/us/app/farmyard-feeder/id1505114076) a children's counting game that I made for my daughter!
 
-[You can check out my LinkedIn profile here](https://www.linkedin.com/in/william-mcintosh-7a080351/).
+You can check out [my LinkedIn profile](https://www.linkedin.com/in/william-mcintosh-7a080351/).
 
-[Here are the videos I've been making on](https://www.youtube.com/channel/UC4FZcQOejhSe9MbgDCo7dpg/videos?view_as=subscriber), yet these are primarily focusing on the next couch co-op game we're planning.
+Here is a link my [GitHub portfolio](https://github.com/williammcintosh/Portfolio/).
+
+Here are links to a few projects I made for my AI course, which I turned into simulators in Unity.
+There's the [8 Puzzle Solver](http://bridgeworxgames.com/8PuzzleSim/) and the [Reflex Agent Vacuum](http://bridgeworxgames.com/CS441_Vac_Sim/).
+
+[Here are the videos I've been making on](https://www.youtube.com/channel/UC4FZcQOejhSe9MbgDCo7dpg/videos?view_as=subscriber), yet these are primarily focusing on the next couch co-op game I'm making.
 
 If you have questions about the privacy policies of our games, please refer to [Unity's privacy policy](https://unity3d.com/legal/privacy-policy), specifically under the section labeled "I play a game built with Unity software, what should I know?".
