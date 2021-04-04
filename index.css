@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.palette {
+  --size: 75px;
+  display: grid;
+  grid-template-columns: repeat(3, var(--size));
+  grid-gap: calc(var(--size) / 3);
+}
+.palette div {
+  height: var(--size);
+}
