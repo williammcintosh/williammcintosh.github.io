@@ -1,6 +1,4 @@
----
-title-heading: false
----
+name: hello world
 
 # Will McIntosh
 Bridgeworx Games
