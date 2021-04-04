@@ -1,3 +1,7 @@
+---
+title-heading: false
+---
+
 # Will McIntosh
 Bridgeworx Games
 
