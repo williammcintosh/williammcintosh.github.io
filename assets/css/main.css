@@ -331,7 +331,7 @@ footer > p {
 
 .icon.brands.seek-icon {
   display: inline-block;
-  background-color: #ff0084; /* White background */
+  background-color: #d32e77; /* White background */
   padding: 10px; /* Space between the image and the box's border */
   border: 1px solid #000000; /* Border around the image */
   border-radius: 8px; /* Rounded corners for the box */
@@ -346,7 +346,7 @@ footer > p {
 
 .icon.brands.linkedin-icon {
   display: inline-block;
-  background-color: #125cd2; /* White background */
+  background-color: #0077b5; /* White background */
   padding: 10px; /* Space between the image and the box's border */
   border: 1px solid #000000; /* Border around the image */
   border-radius: 4px; /* Rounded corners for the box */
@@ -361,7 +361,7 @@ footer > p {
 
 .icon.brands.github-icon {
   display: inline-block;
-  background-color: #078a05; /* White background */
+  background-color: #6cc644; /* White background */
   padding: 10px; /* Space between the image and the box's border */
   border: 1px solid #000000; /* Border around the image */
   border-radius: 4px; /* Rounded corners for the box */
@@ -376,7 +376,7 @@ footer > p {
 
 .icon.brands.email-icon {
   display: inline-block;
-  background-color: #fcafaf; /* White background */
+  background-color: #f28500; /* White background */
   padding: 10px; /* Space between the image and the box's border */
   border: 1px solid #000000; /* Border around the image */
   border-radius: 4px; /* Rounded corners for the box */
@@ -391,7 +391,7 @@ footer > p {
 
 .icon.brands.x-icon {
   display: inline-block;
-  background-color: #3e3e3e; /* White background */
+  background-color: #657786; /* White background */
   padding: 10px; /* Space between the image and the box's border */
   border: 1px solid #000000; /* Border around the image */
   border-radius: 4px; /* Rounded corners for the box */
@@ -406,7 +406,7 @@ footer > p {
 
 .icon.brands.youtube-icon {
   display: inline-block;
-  background-color: #940303; /* White background */
+  background-color: #ff0000; /* White background */
   padding: 10px; /* Space between the image and the box's border */
   border: 1px solid #000000; /* Border around the image */
   border-radius: 4px; /* Rounded corners for the box */
