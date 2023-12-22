@@ -419,6 +419,21 @@ footer > p {
   height: auto; /* Maintain aspect ratio */
 }
 
+.icon.brands.resume-icon {
+  display: inline-block;
+  background-color: #f2eee5; /* White background */
+  padding: 10px; /* Space between the image and the box's border */
+  border: 1px solid #000000; /* Border around the image */
+  border-radius: 4px; /* Rounded corners for the box */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
+}
+
+.icon.brands.resume-icon img {
+  display: block;
+  max-width: 100%; /* Ensures the image scales properly inside the box */
+  height: auto; /* Maintain aspect ratio */
+}
+
 .container {
   margin: 0 auto;
   max-width: calc(100% - 50px);
