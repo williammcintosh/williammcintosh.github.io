@@ -329,111 +329,6 @@ footer > p {
   font-size: 1.25em;
 }
 
-.icon.brands.seek-icon {
-  display: inline-block;
-  background-color: #d32e77; /* White background */
-  padding: 10px; /* Space between the image and the box's border */
-  border: 1px solid #000000; /* Border around the image */
-  border-radius: 8px; /* Rounded corners for the box */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
-}
-
-.icon.brands.seek-icon img {
-  display: block;
-  max-width: 100%; /* Ensures the image scales properly inside the box */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.icon.brands.linkedin-icon {
-  display: inline-block;
-  background-color: #0077b5; /* White background */
-  padding: 10px; /* Space between the image and the box's border */
-  border: 1px solid #000000; /* Border around the image */
-  border-radius: 4px; /* Rounded corners for the box */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
-}
-
-.icon.brands.linkedin-icon img {
-  display: block;
-  max-width: 100%; /* Ensures the image scales properly inside the box */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.icon.brands.github-icon {
-  display: inline-block;
-  background-color: #6cc644; /* White background */
-  padding: 10px; /* Space between the image and the box's border */
-  border: 1px solid #000000; /* Border around the image */
-  border-radius: 4px; /* Rounded corners for the box */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
-}
-
-.icon.brands.github-icon img {
-  display: block;
-  max-width: 100%; /* Ensures the image scales properly inside the box */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.icon.brands.email-icon {
-  display: inline-block;
-  background-color: #f28500; /* White background */
-  padding: 10px; /* Space between the image and the box's border */
-  border: 1px solid #000000; /* Border around the image */
-  border-radius: 4px; /* Rounded corners for the box */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
-}
-
-.icon.brands.email-icon img {
-  display: block;
-  max-width: 100%; /* Ensures the image scales properly inside the box */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.icon.brands.x-icon {
-  display: inline-block;
-  background-color: #657786; /* White background */
-  padding: 10px; /* Space between the image and the box's border */
-  border: 1px solid #000000; /* Border around the image */
-  border-radius: 4px; /* Rounded corners for the box */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
-}
-
-.icon.brands.x-icon img {
-  display: block;
-  max-width: 100%; /* Ensures the image scales properly inside the box */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.icon.brands.youtube-icon {
-  display: inline-block;
-  background-color: #ff0000; /* White background */
-  padding: 10px; /* Space between the image and the box's border */
-  border: 1px solid #000000; /* Border around the image */
-  border-radius: 4px; /* Rounded corners for the box */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
-}
-
-.icon.brands.youtube-icon img {
-  display: block;
-  max-width: 100%; /* Ensures the image scales properly inside the box */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.icon.brands.resume-icon {
-  display: inline-block;
-  background-color: #f2eee5; /* White background */
-  padding: 10px; /* Space between the image and the box's border */
-  border: 1px solid #000000; /* Border around the image */
-  border-radius: 4px; /* Rounded corners for the box */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
-}
-
-.icon.brands.resume-icon img {
-  display: block;
-  max-width: 100%; /* Ensures the image scales properly inside the box */
-  height: auto; /* Maintain aspect ratio */
-}
-
 .container {
   margin: 0 auto;
   max-width: calc(100% - 50px);
@@ -1950,49 +1845,6 @@ ol li {
   padding-left: 0.25em;
 }
 
-/* Social */
-
-ul.social li {
-  position: relative;
-  display: inline-block;
-  margin: 0.5em;
-  top: 0;
-  padding-left: 0;
-}
-
-ul.social li a {
-  display: block;
-  width: 75px;
-  height: auto;
-  border-radius: 6px;
-  top: 0;
-  position: relative;
-}
-
-ul.social li a:before {
-  border-radius: 6px;
-  box-shadow: inset 0px 0px 0px 1px #282828,
-    inset 0px 2px 1px 0px rgba(255, 255, 255, 0.1);
-  color: #2e2e2e !important;
-  display: block;
-  font-size: 26px;
-  height: 80px;
-  line-height: 80px;
-  text-align: center;
-  outline: 0;
-  overflow: hidden;
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);
-  width: 80px;
-}
-
-ul.social li a:hover {
-  filter: brightness(80%);
-}
-
-ul.social li a:active {
-  filter: brightness(120%);
-}
-
 /* Box */
 
 .box {
@@ -2425,12 +2277,6 @@ h4 {
     margin: -50px 0 50px -40px;
     width: auto;
     border-radius: 8px;
-  }
-
-  .box.style1 {
-    max-width: 32em;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 
   .box.style2 {
