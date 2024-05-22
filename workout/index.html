@@ -38,6 +38,7 @@
           <li><a href="#upperchest">Upper Chest</a></li>
           <li><a href="#lowerchest">Lower Chest</a></li>
           <li><a href="#triceps">Triceps</a></li>
+          <li><a href="#legs">Legs</a></li>
         </ul>
       </div>
     </nav>
@@ -65,6 +66,7 @@
         const upperChestContainer = document.querySelector('#upperchest .row');
         const lowerChestContainer = document.querySelector('#lowerchest .row');
         const tricepsContainer = document.querySelector('#triceps .row');
+        const legsContainer = document.querySelector('#legs .row');
 
         const bicepsWorkouts = [
           { img: 'images/bicep_pulldown.gif', title: 'Bicep Pulldown' },
@@ -77,10 +79,29 @@
             img: 'images/inclined_dumbell_curl.gif',
             title: 'Inclined Dumbell Curl',
           },
+          {
+            img: 'images/cross_body_hammer_curls.gif',
+            title: 'Cross Body Hammer Curl',
+          },
+
+          {
+            img: 'images/bicep_chin_pullup_curl.gif',
+            title: 'Chinup Curl',
+          },
         ];
 
         const latsWorkouts = [
           { img: 'images/deadlift.gif', title: 'Deadlift' },
+          { img: 'images/dumbell_gorilla_rows.gif', title: 'Gorilla Rows' },
+          { img: 'images/single_arm_row.gif', title: 'Single Arm Rows' },
+          {
+            img: 'images/straight_arm_pushdown.gif',
+            title: 'Straight Arm Pushdowns',
+          },
+          {
+            img: 'images/snatch_grip_deadlift.gif',
+            title: 'Snatch Grip Deadlifts',
+          },
         ];
 
         const frontDeltsWorkouts = [
@@ -97,6 +118,7 @@
             title: 'Cable Stretch Front Raise',
           },
           { img: 'images/cable_lat_raise.gif', title: 'Cable Lat Raise' },
+          { img: 'images/dumbell_high_pull.gif', title: 'Dumbell High Pulls' },
         ];
 
         const rearDeltsWorkouts = [
@@ -116,6 +138,7 @@
           },
           { img: 'images/JammerPress.gif', title: 'Forward Jammer Press' },
           { img: 'images/LandmineRaindbow.gif', title: 'Landmine Rainbow' },
+          { img: 'images/Barbell_OHP.gif', title: 'Barbell Overhead Press' },
         ];
 
         const lowerChestWorkouts = [
@@ -127,11 +150,46 @@
             img: 'images/incline_db_press.gif',
             title: 'Inclined Barbell or Dumbbell Press',
           },
+          {
+            img: 'images/high-to-low_pulldowns.gif',
+            title: 'High-to-Low Pulldowns',
+          },
         ];
 
         const tricepsWorkouts = [
           { img: 'images/tricep_pulldowns.gif', title: 'Tricep Pulldown' },
           { img: 'images/dips_plus.gif', title: 'Dip' },
+          {
+            img: 'images/overhead_tricep_ext.gif',
+            title: 'Overhead Tricep Ext.',
+          },
+        ];
+
+        const legsWorkouts = [
+          {
+            img: 'images/barbell_hip_thrusts.gif',
+            title: 'Barbell Hip Thrusters',
+          },
+          {
+            img: 'images/barbell_rev_lunge.gif',
+            title: 'Barbell Reverse Lunges',
+          },
+          {
+            img: 'images/calf_curls.gif',
+            title: 'Calf Raises',
+          },
+          {
+            img: 'images/dumbell_single_leg_rdl.gif',
+            title: 'Dumbell RDLs',
+          },
+          {
+            img: 'images/glute_ham_raise.gif',
+            title: 'Roman Chair',
+          },
+          {
+            img: 'images/squats.gif',
+            title: 'Squats',
+          },
         ];
 
         bicepsWorkouts.forEach(
@@ -179,6 +237,13 @@
         tricepsWorkouts.forEach(
           (workout) =>
             (tricepsContainer.innerHTML += createWorkoutBox(
+              workout.img,
+              workout.title
+            ))
+        );
+        legsWorkouts.forEach(
+          (workout) =>
+            (legsContainer.innerHTML += createWorkoutBox(
               workout.img,
               workout.title
             ))
@@ -269,6 +334,16 @@
       <div class="container">
         <header>
           <h2>Triceps</h2>
+          <hr class="full-width-line" />
+        </header>
+        <div class="row"></div>
+      </div>
+    </article>
+
+    <article id="legs" class="wrapper style5">
+      <div class="container">
+        <header>
+          <h2>Legs</h2>
           <hr class="full-width-line" />
         </header>
         <div class="row"></div>
