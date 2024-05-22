@@ -2304,3 +2304,99 @@ h4 {
     font-size: 1.2em;
   }
 }
+/* Add these new styles */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  padding: 0;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  background: rgba(40, 40, 40, 0.9); /* Add this line for background */
+}
+
+.nav-menu li {
+  padding-left: 0;
+}
+
+.nav-menu a {
+  -moz-transition: background-color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  position: relative;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #fff;
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 1.25em;
+}
+
+.nav-menu a:hover {
+  color: #fff !important;
+  background: #383838;
+}
+
+.nav-menu a.active {
+  background: #484848;
+}
+
+.nav-menu a.active:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -0.6em;
+  left: 50%;
+  margin-left: -0.75em;
+  border-left: solid 0.75em transparent;
+  border-right: solid 0.75em transparent;
+  border-top: solid 0.6em #282828;
+}
+
+@media screen and (max-width: 736px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(
+      40,
+      40,
+      40,
+      0.9
+    ); /* Ensure this line is here for background */
+  }
+
+  .nav-menu.nav-menu-visible {
+    display: flex;
+  }
+
+  .nav-menu li {
+    padding: 0.5em 0;
+  }
+
+  .nav-menu a {
+    padding: 0.5em 1em;
+  }
+}
