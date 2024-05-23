@@ -34,7 +34,7 @@
           <li><a href="#biceps">Biceps</a></li>
           <li><a href="#lats">Lats</a></li>
           <li><a href="#frontdelts">Front Delts</a></li>
-          <li><a href="#reardelts">Rear Delts</a></li>
+          <li><a href="#midreardelts">Mid/Rear Delts</a></li>
           <li><a href="#upperchest">Upper Chest</a></li>
           <li><a href="#lowerchest">Lower Chest</a></li>
           <li><a href="#triceps">Triceps</a></li>
@@ -62,7 +62,8 @@
         const bicepsContainer = document.querySelector('#biceps .row');
         const latsContainer = document.querySelector('#lats .row');
         const frontDeltsContainer = document.querySelector('#frontdelts .row');
-        const rearDeltsContainer = document.querySelector('#reardelts .row');
+        const midRearDeltsContainer =
+          document.querySelector('#midreardelts .row');
         const upperChestContainer = document.querySelector('#upperchest .row');
         const lowerChestContainer = document.querySelector('#lowerchest .row');
         const tricepsContainer = document.querySelector('#triceps .row');
@@ -117,17 +118,18 @@
             img: 'images/cable_stretch_front_raise.gif',
             title: 'Cable Stretch Front Raise',
           },
-          { img: 'images/cable_lat_raise.gif', title: 'Cable Lat Raise' },
           { img: 'images/dumbell_high_pull.gif', title: 'Dumbell High Pulls' },
+          { img: 'images/Barbell_OHP.gif', title: 'Barbell Overhead Press' },
         ];
 
-        const rearDeltsWorkouts = [
+        const midRearDeltsWorkouts = [
           {
             img: 'images/rear_delt_cable_row.gif',
             title: 'Rear Delt Cable Row',
           },
           { img: 'images/facepull.gif', title: 'Face Pull' },
           { img: 'images/rear_delt_row.gif', title: 'Rear Delt Dumbell Row' },
+          { img: 'images/cable_lat_raise.gif', title: 'Cable Lat Raise' },
         ];
 
         const upperChestWorkouts = [
@@ -136,9 +138,20 @@
             img: 'images/LeanBackCablePress.gif',
             title: 'Lean Back Cable Press',
           },
-          { img: 'images/JammerPress.gif', title: 'Forward Jammer Press' },
+          {
+            img: 'images/inclined_dumbell_press.gif',
+            title: 'Inclined Dumbell Press',
+          },
+          // { img: 'images/JammerPress.gif', title: 'Forward Jammer Press' },
           { img: 'images/LandmineRaindbow.gif', title: 'Landmine Rainbow' },
-          { img: 'images/Barbell_OHP.gif', title: 'Barbell Overhead Press' },
+          {
+            img: 'images/high_to_low_cable_flye.gif',
+            title: 'Low to High Cable Flye',
+          },
+          {
+            img: 'images/reverse_grip_bench_press.gif',
+            title: 'Reverse Grip Bench Press',
+          },
         ];
 
         const lowerChestWorkouts = [
@@ -146,10 +159,10 @@
             img: 'images/high_to_low_crossover.gif',
             title: 'High-To-Low Crossover or Peck-Deck',
           },
-          {
-            img: 'images/incline_db_press.gif',
-            title: 'Inclined Barbell or Dumbbell Press',
-          },
+          // {
+          //   img: 'images/incline_db_press.gif',
+          //   title: 'Inclined Barbell or Dumbbell Press',
+          // },
           {
             img: 'images/high-to-low_pulldowns.gif',
             title: 'High-to-Low Pulldowns',
@@ -213,9 +226,9 @@
               workout.title
             ))
         );
-        rearDeltsWorkouts.forEach(
+        midRearDeltsWorkouts.forEach(
           (workout) =>
-            (rearDeltsContainer.innerHTML += createWorkoutBox(
+            (midRearDeltsContainer.innerHTML += createWorkoutBox(
               workout.img,
               workout.title
             ))
@@ -300,10 +313,10 @@
       </div>
     </article>
 
-    <article id="reardelts" class="wrapper style5">
+    <article id="midreardelts" class="wrapper style5">
       <div class="container">
         <header>
-          <h2>Rear Delts</h2>
+          <h2>Mid/Rear Delts</h2>
           <hr class="full-width-line" />
         </header>
         <div class="row"></div>
