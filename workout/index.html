@@ -39,6 +39,7 @@
           <li><a href="#lowerchest">Lower Chest</a></li>
           <li><a href="#triceps">Triceps</a></li>
           <li><a href="#legs">Legs</a></li>
+          <li><a href="#knees">Knees</a></li>
         </ul>
       </div>
     </nav>
@@ -68,6 +69,7 @@
         const lowerChestContainer = document.querySelector('#lowerchest .row');
         const tricepsContainer = document.querySelector('#triceps .row');
         const legsContainer = document.querySelector('#legs .row');
+        const kneesContainer = document.querySelector('#knees .row');
 
         const bicepsWorkouts = [
           { img: 'images/bicep_pulldown.gif', title: 'Bicep Pulldown' },
@@ -205,6 +207,26 @@
           },
         ];
 
+        const kneesWorkouts = [
+          {
+            img: 'images/atg_split_squat.gif',
+            title: 'ATG Split Squat',
+          },
+          {
+            img: 'images/tibialis_curls.gif',
+            title: 'Banded Tibialis Curls',
+          },
+          {
+            img: 'images/tibialis_raises.gif',
+            title: 'Tibialis Raises',
+          },
+
+          {
+            img: 'images/Backwards_Treadmill_Walk.gif',
+            title: 'Backwards Walk',
+          },
+        ];
+
         bicepsWorkouts.forEach(
           (workout) =>
             (bicepsContainer.innerHTML += createWorkoutBox(
@@ -257,6 +279,13 @@
         legsWorkouts.forEach(
           (workout) =>
             (legsContainer.innerHTML += createWorkoutBox(
+              workout.img,
+              workout.title
+            ))
+        );
+        kneesWorkouts.forEach(
+          (workout) =>
+            (kneesContainer.innerHTML += createWorkoutBox(
               workout.img,
               workout.title
             ))
@@ -357,6 +386,16 @@
       <div class="container">
         <header>
           <h2>Legs</h2>
+          <hr class="full-width-line" />
+        </header>
+        <div class="row"></div>
+      </div>
+    </article>
+
+    <article id="knees" class="wrapper style5">
+      <div class="container">
+        <header>
+          <h2>Knees</h2>
           <hr class="full-width-line" />
         </header>
         <div class="row"></div>
