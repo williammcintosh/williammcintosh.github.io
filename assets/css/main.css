@@ -376,7 +376,7 @@ footer > p {
 
 .icon.brands.email-icon {
   display: inline-block;
-  background-color: #f28500; /* White background */
+  background-color: #ed7902;
   padding: 10px; /* Space between the image and the box's border */
   border: 1px solid #000000; /* Border around the image */
   border-radius: 4px; /* Rounded corners for the box */
@@ -429,6 +429,21 @@ footer > p {
 }
 
 .icon.brands.resume-icon img {
+  display: block;
+  max-width: 100%; /* Ensures the image scales properly inside the box */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.icon.brands.workout-icon {
+  display: inline-block;
+  background-color: #835da2; /* White background */
+  padding: 10px; /* Space between the image and the box's border */
+  border: 1px solid #000000; /* Border around the image */
+  border-radius: 4px; /* Rounded corners for the box */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
+}
+
+.icon.brands.workout-icon img {
   display: block;
   max-width: 100%; /* Ensures the image scales properly inside the box */
   height: auto; /* Maintain aspect ratio */
