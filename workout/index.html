@@ -31,7 +31,8 @@
           <button class="nav-toggle" id="nav-toggle">☰</button>
         </div>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="#biceps">Biceps</a></li>
+          <li><a href="#innerbiceps">Inner Biceps</a></li>
+          <li><a href="#outerbiceps">Outer Biceps</a></li>
           <li><a href="#lats">Lats</a></li>
           <li><a href="#frontdelts">Front Delts</a></li>
           <li><a href="#midreardelts">Mid/Rear Delts</a></li>
@@ -60,7 +61,8 @@
       }
 
       function insertWorkoutBoxes() {
-        const bicepsContainer = document.querySelector('#biceps .row');
+        const innerBicepContainer = document.querySelector('#innerbiceps .row');
+        const outerBicepContainer = document.querySelector('#outerbiceps .row');
         const latsContainer = document.querySelector('#lats .row');
         const frontDeltsContainer = document.querySelector('#frontdelts .row');
         const midRearDeltsContainer =
@@ -71,7 +73,7 @@
         const legsContainer = document.querySelector('#legs .row');
         const kneesContainer = document.querySelector('#knees .row');
 
-        const bicepsWorkouts = [
+        const innerBicepWorkouts = [
           { img: 'images/bicep_pulldown.gif', title: 'Bicep Pulldown' },
           { img: 'images/barbell_curl.gif', title: 'Barbell Bicep Curl' },
           {
@@ -83,13 +85,27 @@
             title: 'Inclined Dumbell Curl',
           },
           {
+            img: 'images/bicep_chin_pullup_curl.gif',
+            title: 'Chinup Curl',
+          },
+        ];
+
+        const outerBicepWorkouts = [
+          {
             img: 'images/cross_body_hammer_curls.gif',
             title: 'Cross Body Hammer Curl',
           },
-
           {
-            img: 'images/bicep_chin_pullup_curl.gif',
-            title: 'Chinup Curl',
+            img: 'images/close_grip_pullups.gif',
+            title: 'Close Grip Pullups',
+          },
+          {
+            img: 'images/con_curls.gif',
+            title: 'Con Curls',
+          },
+          {
+            img: 'images/drop_curls.gif',
+            title: 'Drop Curls',
           },
         ];
 
@@ -231,9 +247,16 @@
           },
         ];
 
-        bicepsWorkouts.forEach(
+        innerBicepWorkouts.forEach(
           (workout) =>
-            (bicepsContainer.innerHTML += createWorkoutBox(
+            (innerBicepContainer.innerHTML += createWorkoutBox(
+              workout.img,
+              workout.title
+            ))
+        );
+        outerBicepWorkouts.forEach(
+          (workout) =>
+            (outerBicepContainer.innerHTML += createWorkoutBox(
               workout.img,
               workout.title
             ))
@@ -316,10 +339,20 @@
     </script>
 
     <!-- Home -->
-    <article id="biceps" class="wrapper style5">
+    <article id="innerbiceps" class="wrapper style5">
       <div class="container">
         <header>
-          <h2>Biceps</h2>
+          <h2>Inner Biceps</h2>
+          <hr class="full-width-line" />
+        </header>
+        <div class="row"></div>
+      </div>
+    </article>
+
+    <article id="outerbiceps" class="wrapper style5">
+      <div class="container">
+        <header>
+          <h2>Outer Biceps</h2>
           <hr class="full-width-line" />
         </header>
         <div class="row"></div>
