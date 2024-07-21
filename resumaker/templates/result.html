@@ -6,6 +6,10 @@
   <body>
     <h1>Employer Name Extracted from {{ url }}</h1>
     <p><strong>Employer Name:</strong> {{ employer_name }}</p>
+    <p>
+      <strong>Accreditation Status:</strong> {{ 'Accredited' if is_accredited
+      else 'Not Accredited' }}
+    </p>
     <a href="/">Go Back</a>
   </body>
 </html>
