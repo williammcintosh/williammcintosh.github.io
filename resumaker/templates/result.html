@@ -10,6 +10,10 @@
       <strong>Accreditation Status:</strong> {{ 'Accredited' if is_accredited
       else 'Not Accredited' }}
     </p>
+    {% if resume_latex %}
+    <h2>Generated Resume (LaTeX):</h2>
+    <pre>{{ resume_latex }}</pre>
+    {% endif %}
     <a href="/">Go Back</a>
   </body>
 </html>

@@ -7,6 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+import logging
 
 # Load environment variables from .env file
 load_dotenv()
@@ -20,6 +21,10 @@ if not api_key:
     raise ValueError("No API key found. Please set the OPENAI_API_KEY environment variable.")
 
 openai.api_key = api_key
+
+# Suppress detailed stacktrace in the output
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
+logging.getLogger('selenium').setLevel(logging.ERROR)
 
 def get_completion(prompt, model="gpt-4-1106-preview"):
     completion = openai.chat.completions.create(
@@ -58,16 +63,26 @@ def check_employer_accreditation(employer_name):
 
     # Check if the employer is accredited
     try:
-        # Check for the presence of the "There are no results that match your search." message
         no_results_message = driver.find_element(By.XPATH, "//div[contains(@class, 'banner__alert') and contains(., 'Sorry')]")
         accredited = False
-    except Exception as e:
-        # print(f"No 'no results' message found: {e}")
+    except:
         accredited = True
 
     driver.quit()
     
     return accredited
+
+def extract_job_description(html_content):
+    prompt = f"Extract the job description text from the following HTML content:\n\n{html_content}\n\nJob Description:"
+    job_description = get_completion(prompt)
+    return job_description.strip()
+
+def generate_resume_prompt(job_description):
+    with open("resume_prompt.txt", "r") as file:
+        resume_prompt = file.read()
+    
+    resume_prompt = resume_prompt.replace("{{JOB_DESCRIPTION}}", job_description)
+    return resume_prompt
 
 @app.route('/')
 def index():
@@ -86,14 +101,26 @@ def get_html():
         # Check if employer is accredited
         is_accredited = check_employer_accreditation(employer_name)
 
-        return render_template('result.html', url=url, employer_name=employer_name, is_accredited=is_accredited)
+        resume_latex = None
+        if is_accredited:
+            # Extract job description text
+            job_description = extract_job_description(html_content)
+            
+            # Generate resume prompt
+            resume_prompt = generate_resume_prompt(job_description)
+            
+            # Get resume LaTeX content
+            resume_latex = get_completion(resume_prompt)
+        
+        return render_template('result.html', url=url, employer_name=employer_name, is_accredited=is_accredited, resume_latex=resume_latex)
+
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
 def extract_employer_name(html_content):
     prompt = f"Extract the employer name from the following job description HTML content:\n\n{html_content}\n\nEmployer Name:"
     employer_name = get_completion(prompt)
-    return employer_name.strip()  # Make sure to strip any extra whitespace
+    return employer_name.strip()
 
 if __name__ == '__main__':
     app.run(debug=True)
