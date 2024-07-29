@@ -4,16 +4,18 @@
     <title>Employer Name Extractor</title>
   </head>
   <body>
-    <h1>Employer Name Extracted from {{ url }}</h1>
+    <h1>Employer Details</h1>
     <p><strong>Employer Name:</strong> {{ employer_name }}</p>
     <p>
       <strong>Accreditation Status:</strong> {{ 'Accredited' if is_accredited
       else 'Not Accredited' }}
     </p>
-    {% if resume_latex %}
-    <h2>Generated Resume (LaTeX):</h2>
-    <pre>{{ resume_latex }}</pre>
-    {% endif %}
+    <p><strong>Job Role:</strong> {{ job_role }}</p>
+    <p><strong>Job Description:</strong> {{ job_description }}</p>
+    <p>
+      <strong>Skills and Tools:</strong> {{ skills_and_tools | join(', ') }}
+    </p>
+    <p><strong>URL:</strong> {{ url }}</p>
     <a href="/">Go Back</a>
   </body>
 </html>

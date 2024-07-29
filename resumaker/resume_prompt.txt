@@ -20,9 +20,16 @@ Also, please fill in the undefined variables for both volunteer experiences unde
 	* THE_COMPANY
 	* THE_ROLE
 	* THE_SUMMARIZED_JOB_GOAL
-	* RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION
-	* ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION
-	* ANOTHER_RELEVANT_SKILL
+	* SKILL_1
+    * SKILL_2
+    * SKILL_3
+    * SKILL_4
+    * SKILL_5
+    * SKILL_6
+    * SKILL_7
+    * SKILL_8
+    * SKILL_9
+    * SKILL_10
 2. Select experiences and projects that line up with the job description.
 3. Use key terms and skills from the job description and line up with my experiences, while still being true and honest with my experiences.
 4. Select matching experience or projects that most closely match with the job description.
@@ -139,11 +146,11 @@ Big Brothers Big Sisters Columbia Northwest --- Portland, Or. USA
 ```
 
 # Latex Resume:
-\documentclass{resume} \usepackage[default]{lato} \usepackage{hyperref} \usepackage[left=0.4in,top=0.4in,right=0.4in,bottom=0.4in]{geometry} \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}} \name{William McIntosh} \address{26 Ponsoby Road, Unit 1 \ Wellington, Wellington 6012} \address{+64 7 808 0446 \ \href{mailto
+\documentclass{resume} \usepackage[default]{lato} \usepackage{hyperref} \usepackage[left=0.4in,top=0.4in,right=0.4in,bottom=0.4in]{geometry} \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}} \name{William McIntosh} \address{145 Shakespeare Road, Auckland, Auckland 0620, New Zealand} \address{+64 7 808 0446 \ \href{mailto
 @ahead.nz}{will@ahead.nz} \ \href{https://ahead.nz}{ahead.nz}}
 \begin{document}
 \begin{rSection}{PROFESSIONAL PROFILE} { With a Master’s in Computer Science, 3 years in data science, and 10 years in people management, I’m excited for a fresh start in New Zealand. Embracing a major career change, my love for learning and high tolerance for ambiguity drive me. Drawn by the work-life balance and great environment for raising my kids, I’m eager to join the kiwi tech community, and I believe this is possible working together with you at {THE_COMPANY} {THE_SUMMARIZED_JOB_GOAL}. } \end{rSection}
-\begin{rSection}{MIGRATION STATUS} { My wife and I graduated from Portland State University on June 15th and are moving to Wellington on July 28th. Our immigration advisor, Charlotte Stockman from NZ Shores, has handled all paperwork and fees. We just need a job offer from an accredited employer to complete the process. charlotte@nzshores.com, 07 929 2280. } \end{rSection}
+\begin{rSection}{MIGRATION STATUS} { My wife and I graduated from Portland State University on June 15th and are moving to Auckland on July 28th. Our immigration advisor, Charlotte Stockman from NZ Shores, has handled all paperwork and fees. We just need a job offer from an accredited employer to complete the process. charlotte@nzshores.com, 07 929 2280. } \end{rSection}
 \begin{rSection}{EDUCATION} { \textbf{Master's of Science in Computer Science} \hfill {2023 - 2024} \ Portland State University
 \textbf{Bachelor's of Science in Data Science} \hfill {2018 - 2023} \ Portland State University, \textit{magna cum laude} } \end{rSection}
 \begin{rSection}{EXPERIENCE RELEVANT TO {THE_ROLE}} { \textbf{Graduate Research Assistant at Portland State University} \hfill 2023 - 2024 \begin{itemize} \item \textbf{Relevant Expertise for {THE_COMPANY}}: Utilized {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION} to achieve {SPECIFIC_ACHIEVEMENT_RELATED_TO_JOB_DESCRIPTION}, demonstrating a strong alignment with {THE_COMPANY}’s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Honed advanced skills in {ANOTHER_RELEVANT_SKILL}. \href{https://github.com/williammcintosh/WMT_excel_merger}{GitHub Repo} \item \textbf{Revolutionized Process Automation and Coordination}: Engineered a Python script that slashed Excel data entry time from eight hours to mere minutes, integrating county-wide waste management datasets and identifying historical anomalies. Streamlined annual bulk waste removal events for 30+ business tenants, significantly enhancing efficiency and effectiveness in waste management. \item \textbf{Optimized Operational Management}: Conducted weekly waste area inspections, built professional relationships with local partners, and strategically managed tenant-generated materials, achieving ambitious recycling and reuse targets. \end{itemize}

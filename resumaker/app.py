@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file, make_response
 import requests
 import openai
 from dotenv import load_dotenv
@@ -8,6 +8,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 import logging
+import re
+import io
+from bs4 import BeautifulSoup
 
 # Load environment variables from .env file
 load_dotenv()
@@ -72,17 +75,39 @@ def check_employer_accreditation(employer_name):
     
     return accredited
 
-def extract_job_description(html_content):
-    prompt = f"Extract the job description text from the following HTML content:\n\n{html_content}\n\nJob Description:"
-    job_description = get_completion(prompt)
+def extract_main_content(html_content):
+    soup = BeautifulSoup(html_content, 'html.parser')
+    main_content = soup.find_all(['p', 'h1', 'h2', 'h3', 'li'])
+    content_text = "\n".join([element.get_text() for element in main_content])
+    return content_text
+
+def summarize_content(content):
+    prompt = f"Summarize the following content:\n\n{content}"
+    summary = get_completion(prompt, model="gpt-3.5-turbo")
+    return summary.strip()
+
+def extract_detail(detail, html_content):
+    main_content = extract_main_content(html_content)
+    summary = summarize_content(main_content)
+    prompt = f"""
+        Extract the {detail} text from the following summarized content.
+        Return back just the precise {detail} text without quotes:
+        \n\n{summary}
+        \n\nJob Description:
+    """
+    job_description = get_completion(prompt, model="gpt-3.5-turbo")
     return job_description.strip()
 
-def generate_resume_prompt(job_description):
-    with open("resume_prompt.txt", "r") as file:
-        resume_prompt = file.read()
-    
-    resume_prompt = resume_prompt.replace("{{JOB_DESCRIPTION}}", job_description)
-    return resume_prompt
+def extract_skills_and_tools(html_content):
+    main_content = extract_main_content(html_content)
+    summary = summarize_content(main_content)
+    prompt = f"""
+        Extract a comprehensive list of both hard skills and soft skills required from the following job description.
+        Return the skills and tools as a comma-separated list:
+        \n\n{summary}
+    """
+    skills_and_tools = get_completion(prompt, model="gpt-4-1106-preview")
+    return [skill.strip() for skill in skills_and_tools.split(',')]
 
 @app.route('/')
 def index():
@@ -96,31 +121,26 @@ def get_html():
         html_content = response.text
 
         # Use OpenAI API to extract employer name
-        employer_name = extract_employer_name(html_content)
+        employer_name = extract_detail("employer name", html_content)
 
         # Check if employer is accredited
         is_accredited = check_employer_accreditation(employer_name)
 
-        resume_latex = None
+        job_role = job_description = skills_and_tools = None
         if is_accredited:
             # Extract job description text
-            job_description = extract_job_description(html_content)
+            job_description = extract_detail("job description", html_content)
             
-            # Generate resume prompt
-            resume_prompt = generate_resume_prompt(job_description)
+            # Extract job role text
+            job_role = extract_detail("job role", html_content)
             
-            # Get resume LaTeX content
-            resume_latex = get_completion(resume_prompt)
-        
-        return render_template('result.html', url=url, employer_name=employer_name, is_accredited=is_accredited, resume_latex=resume_latex)
+            # Extract skills and tools
+            skills_and_tools = extract_skills_and_tools(html_content)
+
+        return render_template('result.html', url=url, job_role=job_role, job_description=job_description, employer_name=employer_name, is_accredited=is_accredited, skills_and_tools=skills_and_tools)
 
     except Exception as e:
         return f"An error occurred: {str(e)}"
-
-def extract_employer_name(html_content):
-    prompt = f"Extract the employer name from the following job description HTML content:\n\n{html_content}\n\nEmployer Name:"
-    employer_name = get_completion(prompt)
-    return employer_name.strip()
 
 if __name__ == '__main__':
     app.run(debug=True)
