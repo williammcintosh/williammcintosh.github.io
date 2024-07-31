@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, make_response
+from flask import Flask, render_template, request
 import requests
 import openai
 from dotenv import load_dotenv
@@ -6,10 +6,9 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import logging
-import re
-import io
 from bs4 import BeautifulSoup
 
 # Load environment variables from .env file
@@ -45,10 +44,11 @@ def check_employer_accreditation(employer_name):
     url = "https://www.immigration.govt.nz/new-zealand-visas/preparing-a-visa-application/working-in-nz/check-if-an-employer-is-accredited"
     
     # Set up Selenium and open the browser
-    options = webdriver.ChromeOptions()
+    options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
+    
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
     driver.get(url)
@@ -96,18 +96,29 @@ def extract_detail(detail, html_content):
         \n\nJob Description:
     """
     job_description = get_completion(prompt, model="gpt-3.5-turbo")
-    return job_description.strip()
+    return job_description.strip() if job_description else ""
 
-def extract_skills_and_tools(html_content):
+def extract_hard_skills(html_content):
     main_content = extract_main_content(html_content)
     summary = summarize_content(main_content)
     prompt = f"""
-        Extract a comprehensive list of both hard skills and soft skills required from the following job description.
-        Return the skills and tools as a comma-separated list:
+        Extract a comprehensive list of hard skills from the following job description.
+        Return the hard skills as a comma-separated list:
         \n\n{summary}
     """
-    skills_and_tools = get_completion(prompt, model="gpt-4-1106-preview")
-    return [skill.strip() for skill in skills_and_tools.split(',')]
+    hard_skills = get_completion(prompt, model="gpt-4-1106-preview")
+    return [skill.strip() for skill in hard_skills.split(',')] if hard_skills else []
+
+def extract_soft_skills(html_content):
+    main_content = extract_main_content(html_content)
+    summary = summarize_content(main_content)
+    prompt = f"""
+        Extract a comprehensive list of soft skills from the following job description.
+        Return the soft skills as a comma-separated list:
+        \n\n{summary}
+    """
+    soft_skills = get_completion(prompt, model="gpt-4-1106-preview")
+    return [skill.strip() for skill in soft_skills.split(',')] if soft_skills else []
 
 @app.route('/')
 def index():
@@ -126,7 +137,7 @@ def get_html():
         # Check if employer is accredited
         is_accredited = check_employer_accreditation(employer_name)
 
-        job_role = job_description = skills_and_tools = None
+        job_role = job_description = hard_skills = soft_skills = None
         if is_accredited:
             # Extract job description text
             job_description = extract_detail("job description", html_content)
@@ -134,10 +145,13 @@ def get_html():
             # Extract job role text
             job_role = extract_detail("job role", html_content)
             
-            # Extract skills and tools
-            skills_and_tools = extract_skills_and_tools(html_content)
+            # Extract hard skills
+            hard_skills = extract_hard_skills(html_content)
+            
+            # Extract soft skills
+            soft_skills = extract_soft_skills(html_content)
 
-        return render_template('result.html', url=url, job_role=job_role, job_description=job_description, employer_name=employer_name, is_accredited=is_accredited, skills_and_tools=skills_and_tools)
+        return render_template('result.html', url=url, job_role=job_role or "", job_description=job_description or "", employer_name=employer_name or "", is_accredited=is_accredited, hard_skills=hard_skills or [], soft_skills=soft_skills or [])
 
     except Exception as e:
         return f"An error occurred: {str(e)}"
