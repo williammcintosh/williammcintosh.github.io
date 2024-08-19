@@ -1,0 +1,152 @@
+```
+# Instruction 2 (Create Variables):
+
+1. **Identify Tools and Skills**: Extract key tools and skills from the job description. Variables to define are:
+    * THE_COMPANY
+    * THE_ROLE
+    * THE_SUMMARIZED_JOB_GOAL
+    * RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION
+    * ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION
+    * ANOTHER_RELEVANT_SKILL
+2. Select experiences and projects that line up with the job description.
+3. Use key terms and skills from the job description and line up with my experiences, while still being true and honest with my experiences.
+4. Select matching experience or projects that most closely match with the job description.
+# JSON Experience:
+```
+{
+    "Name": "William McIntosh",
+    "Email": "will@ahead.nz",
+    "Portfolio": "ahead.nz",
+    "WORK HISTORY": {
+        "1": {
+            "Employer": "Port of Portland",
+            "Location": "Portland, Oregon",
+            "Duration": "Jun 2023—Jun 2024",
+            "Title": "Research Assistant",
+            "Latex": "◊textbf{Graduate Research Assistant at Portland State University} ◊hfill JUN 2023 - JUN 2024
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Applied expertise in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION} to support {THE_COMPANY}'s demand for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Demonstrated capability through {DETAILED_EXAMPLE_RELATED_TO_JOB_DESCRIPTION} and honed advanced skills in {ANOTHER_RELEVANT_SKILL}, aligning with {THE_COMPANY}'s emphasis on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. ◊href{https://github.com/williammcintosh/WMT_excel_merger}{GitHub Repo}
+    ◊item ◊textbf{Revolutionized Process Automation and Coordination}: Engineered a Python script that slashed Excel data entry time from eight hours to mere minutes, integrating county-wide waste management datasets and identifying historical anomalies. Streamlined annual bulk waste removal events for 30+ business tenants, significantly enhancing efficiency and effectiveness in waste management.
+    ◊item ◊textbf{Optimized Operational Management}: Conducted weekly waste area inspections, built professional relationships with local partners, and strategically managed tenant-generated materials, achieving ambitious recycling and reuse targets.
+◊end{itemize}"
+        },
+        "2": {
+            "Employer": "Homeoptions, Inc.",
+            "Location": "Remote",
+            "Duration": "Oct 2021—Mar 2023",
+            "Title": "Data Scientist",
+            "Latex": "◊textbf{Data Scientist at Homeoptions, Inc.} ◊hfill OCT 2021 - MAR 2023
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Exhibited expertise in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, meeting {THE_COMPANY}'s demand for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. This role included {DETAILED_EXAMPLE_RELATED_TO_JOB_DESCRIPTION} and enhanced proficiency in {ANOTHER_RELEVANT_SKILL}, pivotal for {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. ◊href{https://github.com/williammcintosh/machine_learning_projects/blob/main/xgboost_sagemaker_cloud_training_template.ipynb}{GitHub Repo}
+    ◊item ◊textbf{Innovative Predictive Modeling and Machine Learning}: Crafted a sophisticated predictive model leveraging AWS to anticipate homeowner foreclosures. Architected and managed an ETL pipeline, integrating data from three providers, and efficiently processing over 10,000 records using pandas and scipy. Implemented logistic regression and XGBoost for precise binary classification, optimizing feature selection with RFE, and addressing class imbalance with SMOTE.
+    ◊item ◊textbf{Dynamic Web Application Development}: Developed a real-time risk assessment web application using AWS API Gateway and Lambda, mirroring the development processes of {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}.
+◊end{itemize}"
+        },
+        "3": {
+            "Employer": "Procore, Inc.",
+            "Location": "Portland, Oregon",
+            "Duration": "Oct 2017—Jul 2018",
+            "Title": "Customer Support Manager",
+            "Latex": "◊textbf{Customer Support Manager at Procore Inc.} ◊hfill OCT 2017 - JUL 2018
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Demonstrated mastery in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, aligning with {THE_COMPANY}'s requirement for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. This role encompassed {DETAILED_EXAMPLE_RELATED_TO_JOB_DESCRIPTION} and cultivated advanced skills in {ANOTHER_RELEVANT_SKILL}, essential for {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}.
+    ◊item ◊textbf{Exceptional Team Leadership and Performance Enhancement}: Directed a team of 10, consistently surpassing SLA goals and achieving remarkable efficiency. Successfully recruited and trained the remote office. Amplified productivity by cutting after-call work, elevating daily contact counts; honored with the Team of the Week award in July.
+    ◊item ◊textbf{Insightful Data Analysis}: Engineered comprehensive reports and dashboards to inform business strategies. Utilized Salesforce CRM to monitor contact quality and lead team huddles for ongoing improvement.
+◊end{itemize}"
+        },
+        "4": {
+            "Employer": "Portland State University",
+            "Location": "Portland, Oregon",
+            "Duration": "Sep 2020—Sep 2021",
+            "Title": "Computer Science Tutor",
+            "Latex": "◊textbf{Computer Science Tutor} ◊hfill 2020 - 2021
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Demonstrated expertise in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, aligning with {THE_COMPANY}'s requirement for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. This role included {DETAILED_EXAMPLE_RELATED_TO_JOB_DESCRIPTION} and developed advanced skills in {ANOTHER_RELEVANT_SKILL}, crucial for {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}.
+    ◊item ◊textbf{Innovative Teaching Methods and Project Guidance}: Developed interactive aids using Unity and C# to clarify data structures and object-oriented programming concepts. Utilized an iPad for visual explanations, significantly boosting student comprehension. Directed students in restarting and refining their projects to grasp fundamental concepts, and mentored fellow tutors to enhance their teaching abilities.
+    ◊item ◊textbf{Strategic Curriculum Development}: Contributed to curriculum development, shaping the structure and content of computer science courses to improve learning outcomes.
+◊end{itemize}"
+        },
+        "5": {
+            "University": "Portland State University",
+            "Location": "Portland, Oregon",
+            "Duration": "Jun 2023—Jun 2024",
+            "Degree": "Master of Science",
+            "Focus": "Artificial Intelligence and Machine Learning track",
+            "Latex": "◊textbf{Graduate Student at Portland State University} ◊hfill JUN 2023 - JUN 2024
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Showcased expertise in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, fulfilling {THE_COMPANY}'s demand for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. This role involved {DETAILED_EXAMPLE_RELATED_TO_JOB_DESCRIPTION} and refined skills in {ANOTHER_RELEVANT_SKILL}, pivotal for {THE_COMPANY}'s emphasis on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. ◊href{https://github.com/cverbout/Data-Engineering-Group-Project/tree/master}{GitHub Repo}
+    ◊item ◊textbf{Efficient Data Collection and Advanced Cleaning}: Implemented a virtual machine and cron jobs to automate daily data gathering from the local public transit (Trimet) bus system via API. Utilized pub/sub in Google Cloud with acknowledged messages to ensure complete data consumption, consolidating JSON objects from bus breadcrumbs every 15 seconds. Applied regex with Python to meticulously clean and verify data, managed varying sizes of bus breadcrumbs, and imputed missing values using trigonometry.
+    ◊item ◊textbf{Rapid Data Storage and Visualization}: Employed Python's copy◊_from method to efficiently upload millions of records into the PostgreSQL database within minutes. Created comprehensive data visualizations using Folium for in-depth analysis.
+◊end{itemize}"
+        },
+        "6": {
+            "University": "Portland State University",
+            "Location": "Portland, Oregon",
+            "Duration": "Jun 2018—Jun 2023",
+            "Degree": "Bachelors of Science, summa cum laude",
+            "Focus": "Major in data science and minor in computer science",
+            "Latex": "◊textbf{Undergraduate Student at Portland State University} ◊hfill SEP 2018 - JUN 2023
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Demonstrated proficiency in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, meeting {THE_COMPANY}'s requirement for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. This role included {DETAILED_EXAMPLE_RELATED_TO_JOB_DESCRIPTION} and enhanced expertise in {ANOTHER_RELEVANT_SKILL}, essential for {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. ◊href{https://github.com/williammcintosh/aws-terraform-project}{Github Repo}
+    ◊item ◊textbf{Streamlined Pipeline Automation and Robust Management}: Configured AWS CodePipeline, CodeBuild, and CodeDeploy to fully automate builds, tests, and deployments of the Rust application. Managed artifacts storage in S3 and deployed applications to ECS with Fargate. Hosted PostgreSQL on Amazon RDS, securely managed credentials with AWS Secrets Manager, and implemented IAM roles for secure access.
+    ◊item ◊textbf{Efficient Infrastructure Setup}: Leveraged Terraform and Docker for infrastructure as code, deploying within a VPC. Utilized DynamoDB or PostgreSQL RDS for state locking, stored state files in S3, and monitored systems with CloudWatch.
+◊end{itemize}"
+        }
+    },
+    "VOLUNTEER EXPERIENCE": {
+        "1": {
+            "Organization": "We In Computer Science",
+            "Location": "Portland, Oregon",
+            "Duration": "Jun 2020—Oct 2021",
+            "Title": "Computer Science Peer Mentor",
+            "Latex": "◊textbf{Computer Science Peer Mentor} ◊hfill JUN 2020 - OCT 2021
+We In Computer Science --- Portland State University
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Demonstrated strong leadership and organizational skills in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, aligning with {THE_COMPANY}'s requirements for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. This role involved cultivating advanced skills in mentoring and community building, crucial for {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}.
+    ◊item ◊textbf{Leadership and Event Coordination}: Directed the mentorship program and orchestrated special events within PSU's computer science department, significantly benefiting over 30 students. Provided essential tools and resources to support underrepresented groups, aiding them in successfully completing their computer science undergraduate studies at PSU.
+    ◊item ◊textbf{Mentorship Impact}: Delivered personalized guidance and support, enhancing students' academic experience and fostering a supportive learning community.
+◊end{itemize}"
+        },
+        "2": {
+            "Organization": "Big Brothers Big Sisters",
+            "Location": "Portland, Oregon",
+            "Duration": "Sep 2018—Sep 2019",
+            "Title": "Youth Mentor",
+            "Latex": "◊textbf{Youth Mentor} ◊hfill SEP 2018 - SEP 2019 ◊◊
+Big Brothers Big Sisters Columbia Northwest --- Portland, Or. USA
+◊begin{itemize}
+    ◊item ◊textbf{Aligned with {THE_COMPANY}'s Needs}: Demonstrated strong interpersonal and mentoring skills in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, aligning with {THE_COMPANY}'s requirements for {SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. This role enhanced my ability to mentor and support youth, a skill crucial for {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}.
+    ◊item ◊textbf{Transformative Mentorship and Program Development}: Provided one-on-one mentorship, fostering personal and academic growth in young mentees through regular guidance and support. Assisted in developing and implementing mentorship programs tailored to meet the unique needs of each mentee, resulting in improved outcomes.
+    ◊item ◊textbf{Community Engagement}: Actively engaged with the local community to promote the mission of Big Brothers Big Sisters, enhancing program visibility and support.
+◊end{itemize}”
+    }
+}
+```
+
+# Latex Resume:
+◊documentclass{resume}
+◊usepackage[default]{lato}
+◊usepackage{hyperref}
+◊usepackage[left=0.4in,top=0.4in,right=0.4in,bottom=0.4in]{geometry}
+◊newcommand{◊tab}[1]{◊hspace{.2667◊textwidth}◊rlap{#1}}
+◊newcommand{◊itab}[1]{◊hspace{0em}◊rlap{#1}}
+◊name{William McIntosh}
+◊address{37 Byron Avenue, Takapuna, Auckland 0622, New Zealand}
+◊address{+64 212 769 799 ◊ ◊href{mailto:will@ahead.nz}{will@ahead.nz} ◊ ◊href{https://ahead.nz}{ahead.nz}}
+◊begin{document}
+◊begin{rSection}{PROFESSIONAL PROFILE} { With a Master's in Computer Science, 3 years in data science, and 10 years in people management, I'm excited for a fresh start in New Zealand. Embracing a major career change, my love for learning and high tolerance for ambiguity drive me. Drawn by the work-life balance and great environment for raising my kids, I'm eager to join the kiwi tech community, and I believe this is possible working together with you at {THE_COMPANY} {THE_SUMMARIZED_JOB_GOAL}. } ◊end{rSection}
+◊begin{rSection}{MIGRATION STATUS} { My wife, our daughter and I have moved into the lovely Takapuna area of Auckland, having graduated from Portland State University in June. Our immigration advisor, Charlotte Stockman from NZ Shores, has handled all paperwork and fees. We just need a job offer to complete the process. Charlotte's contact info: 07 929 2280 or charlotte@nzshores.com. } ◊end{rSection}
+◊begin{rSection}{EDUCATION} { ◊textbf{Master's of Science in Computer Science} ◊hfill {JUN 2023 - JUN 2024} ◊◊ Portland State University ◊◊
+◊textbf{Bachelor's of Science in Data Science} ◊hfill {SEP 2018 - JUN 2023} ◊◊ Portland State University, ◊textit{magna cum laude} } ◊end{rSection}
+◊begin{rSection}{experience relevant to {THE_ROLE}} { ◊textbf{Graduate Research Assistant at Portland State University} ◊hfill 2023 - 2024 ◊begin{itemize} ◊item ◊textbf{Relevant Expertise for {THE_COMPANY}}: Utilized {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION} to achieve {SPECIFIC_ACHIEVEMENT_RELATED_TO_JOB_DESCRIPTION}, demonstrating a strong alignment with {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Honed advanced skills in {ANOTHER_RELEVANT_SKILL}. ◊href{https://github.com/williammcintosh/WMT_excel_merger}{GitHub Repo} ◊item ◊textbf{Revolutionized Process Automation and Coordination}: Engineered a Python script that slashed Excel data entry time from eight hours to mere minutes, integrating county-wide waste management datasets and identifying historical anomalies. Streamlined annual bulk waste removal events for 30+ business tenants, significantly enhancing efficiency and effectiveness in waste management. ◊item ◊textbf{Optimized Operational Management}: Conducted weekly waste area inspections, built professional relationships with local partners, and strategically managed tenant-generated materials, achieving ambitious recycling and reuse targets. ◊end{itemize}
+◊textbf{Data Scientist at Homeoptions, Inc.} ◊hfill 2021 - 2023 ◊begin{itemize} ◊item ◊textbf{Relevant Expertise for {THE_COMPANY}}: Leveraged {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION} in projects like {SPECIFIC_ACHIEVEMENT_RELATED_TO_JOB_DESCRIPTION}, showcasing capabilities aligned with {THE_COMPANY}'s emphasis on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Developed advanced proficiency in {ANOTHER_RELEVANT_SKILL}. ◊href{https://github.com/williammcintosh/machine_learning_projects/blob/main/xgboost_sagemaker_cloud_training_template.ipynb}{GitHub Repo} ◊item ◊textbf{Innovative Predictive Modeling and Machine Learning}: Crafted a sophisticated predictive model leveraging AWS to anticipate homeowner foreclosures. Architected and managed an ETL pipeline, integrating data from three providers, and efficiently processing over 10,000 records using pandas and scipy. Implemented logistic regression and XGBoost for precise binary classification, optimizing feature selection with RFE, and addressing class imbalance with SMOTE. ◊item ◊textbf{Dynamic Web Application Development}: Developed a real-time risk assessment web application using AWS API Gateway and Lambda, mirroring the development processes of Azure Functions and Service Bus. ◊end{itemize}
+◊textbf{Customer Support Manager at Procore Inc.} ◊hfill 2017 - 2018◊◊ ◊begin{itemize} ◊item ◊textbf{Relevant Expertise for {THE_COMPANY}}: Applied {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION} to improve {SPECIFIC_ACHIEVEMENT_RELATED_TO_JOB_DESCRIPTION}, reflecting a strong fit with {THE_COMPANY}'s priorities in {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Gained advanced skills in {ANOTHER_RELEVANT_SKILL}. ◊item ◊textbf{Exceptional Team Leadership and Performance Enhancement}: Directed a team of 10, consistently surpassing SLA goals and achieving remarkable efficiency. Successfully recruited and trained the remote office. Amplified productivity by cutting after-call work, elevating daily contact counts; honored with the Team of the Week award in July. ◊item ◊textbf{Insightful Data Analysis}: Engineered comprehensive reports and dashboards to inform business strategies. Utilized Salesforce CRM to monitor contact quality and lead team huddles for ongoing improvement. ◊end{itemize} } ◊end{rSection}
+◊begin{rSection}{VOLUNTEER EXPERIENCE} { ◊textbf{Computer Science Peer Mentor} ◊hfill 2020 - 2021◊ We In Computer Science --- Portland State University ◊begin{itemize} ◊item ◊textbf{Relevant Expertise for {THE_COMPANY}}: Demonstrated leadership and organizational skills in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, which is relevant to {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Enhanced skills in mentoring and community building. ◊item ◊textbf{Leadership and Event Coordination}: Directed the mentorship program and orchestrated special events within PSU's computer science department, significantly benefiting over 30 students. Provided essential tools and resources to support underrepresented groups, aiding them in successfully completing their computer science undergraduate studies at PSU. ◊item ◊textbf{Mentorship Impact}: Delivered personalized guidance and support, enhancing students' academic experience and fostering a supportive learning community. ◊end{itemize}
+◊textbf{Youth Mentor} ◊hfill 2018 - 2019◊◊ Big Brothers Big Sisters Columbia Northwest --- Portland, Or. USA ◊begin{itemize} ◊item ◊textbf{Relevant Expertise for {THE_COMPANY}}: Demonstrated strong interpersonal and mentoring skills in {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION}, aligning with {THE_COMPANY}'s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Enhanced my ability to mentor and support youth. ◊item ◊textbf{Transformative Mentorship and Program Development}: Provided one-on-one mentorship, fostering personal and academic growth in young mentees through regular guidance and support. Assisted in developing and implementing mentorship programs tailored to meet the unique needs of each mentee, resulting in improved outcomes. ◊item ◊textbf{Community Engagement}: Actively engaged with the local community to promote the mission of Big Brothers Big Sisters, enhancing program visibility and support. ◊end{itemize} } ◊end{rSection}
+◊begin{rSection}{WORK EXPERIENCE TIMELINE} { ◊textbf{Data Scientist} ◊hfill OCT 2021 - MAR 2023 ◊ Homeoptions, Inc. --- Remote
+◊textbf{Customer Support Manager} ◊hfill OCT 2017 - JUL 2018◊ Procore, Inc. --- Portland, Or. USA
+◊textbf{Graduate Research Assistant} ◊hfill JUN 2023 - JUN 2024◊ Port of Portland, PDX Airport --- Portland, Or. USA } ◊end{rSection}
+◊end{document}
+
+# Instruction 3 (Final):
+When writing latex code be careful to keep the forward slash counts precisely the same as I have written them. You have a tendency to make extra forward slashes for instance "◊◊" then "◊" is sufficient, ruining the latex code. For instance I wrote "◊href" and you'll repeat it back as "◊◊href" ruining all compilation in latex. Be sure that when you're using a specific experience from the JSON Experience object that you're also filling in all the necessary fields, using all three "◊item" points that are listed in the JSON object for each individual experience. Again, be very careful not to make stuff up that I did, instead of saying “demonstrated proficiency {SKILL_FROM_JOB_DESCRIPTION} {TOOL_FROM_JOB_DESCRIPTION}” that I never historically demonstrated experience in (since it's not in the JSON Experience object), instead say “demonstrated proficiency in {SKILL_FROM_JSON_EXPERIENCE} {TOOL_FROM_JSON_EXPERIENCE} which is similar to {SKILL_FROM_JOB_DESCRIPTION} {TOOL_FROM_JOB_DESCRIPTION}”. Also, please fill in the undefined variables for both volunteer experiences under the “VOLUNTEER EXPERIENCE” section relating it to the job description. Please just provide the completed LaTeX code below:

@@ -1,0 +1,14 @@
+# Instruction 1 (Overview):
+I need your help crafting my resume in a latex format and adjusting the important parts based on my resume in a json format, and the job description. I want you to add a new "◊begin{rSection}" under the name "EXPERIENCE RELEVANT TO {THE_ROLE}" (or something like that) which highlights three projects from either:
+* my time as a manager at procore
+* my time as a data scientist as homeoptions
+* my time as a research assistant at the port of portland
+* my time as a graduate student
+* my time as an undergrad student at portland state university
+* my time as a computer science tutor
+Select the three projects that would most align with the job description. Be sure to re-word this section and highlight skills or tools that are similar to those in the job description, but be careful not to lie, meaning only say I have experience in tools or skills you read from the JSON Experience object. For instance saying something like "I have experience with Azure" is a lie because it's not in the JSON experience, but saying something like "I have experience with GCP which is cloud compute experience much similar to that of Azure mentioned in the job description." You see the difference? We're not lying but we're making connections between the job description and the newly crafted resume in latex. Be sure to also add both volunteer experiences.
+
+Also, please fill in the undefined variables for both volunteer experiences under the “VOLUNTEER EXPERIENCE” section relating it to the job description.
+
+# Job Description Posting:
+```

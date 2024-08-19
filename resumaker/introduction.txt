@@ -1,3 +1,0 @@
-\begin{rSection}{PROFESSIONAL PROFILE}
-{ With a Master’s in Computer Science, 3 years in data science, and 10 years in people management, I’m excited for a fresh start in New Zealand. Embracing a major career change, my love for learning and high tolerance for ambiguity drive me. Drawn by the work-life balance and great environment for raising my kids, I’m eager to join the kiwi tech community, and I believe this is possible working together with you at {THE_COMPANY} {THE_SUMMARIZED_JOB_GOAL}. }
-\end{rSection}

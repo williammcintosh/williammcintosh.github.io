@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Employer Name Extractor</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Information</title>
   </head>
   <body>
-    <h1>Employer Details</h1>
+    <h1>Job Information</h1>
+    <p><strong>URL:</strong> {{ url }}</p>
     <p><strong>Employer Name:</strong> {{ employer_name }}</p>
-    <p>
-      <strong>Accreditation Status:</strong> {{ 'Accredited' if is_accredited
-      else 'Not Accredited' }}
-    </p>
+    <p><strong>Accredited:</strong> {{ 'Yes' if is_accredited else 'No' }}</p>
     <p><strong>Job Role:</strong> {{ job_role }}</p>
     <p><strong>Job Description:</strong> {{ job_description }}</p>
-    <p><strong>Hard Skills:</strong> {{ hard_skills | join(', ') }}</p>
-    <p><strong>Soft Skills:</strong> {{ soft_skills | join(', ') }}</p>
-    <p><strong>URL:</strong> {{ url }}</p>
-    <a href="/">Go Back</a>
+    <p><strong>Hiring Manager Name:</strong> {{ hiring_manager_name }}</p>
+    <p><strong>Hiring Manager Email:</strong> {{ hiring_manager_email }}</p>
+    <p><strong>Job Location:</strong> {{ job_location }}</p>
+    <p>
+      <strong>Form Submitted:</strong> {{ 'Yes' if form_submitted else 'No' }}
+    </p>
+    <p><strong>Source:</strong> {{ source }}</p>
+
+    <h2>Download Options</h2>
+    <p>
+      <a
+        href="{{ url_for('download_file', file_type='word', path=job_description_word_path, company=employer_name, role=job_role) }}"
+        >Download Job Description (Word)
+      </a>
+    </p>
+    <p>
+      <a
+        href="{{ url_for('download_file', file_type='latex', path=latex_file_path, company=employer_name, role=job_role) }}"
+        >Download Resume (LaTeX)
+      </a>
+    </p>
+    <p>
+      <a
+        href="{{ url_for('download_file', file_type='coverletter', path=coverletter_file_path, company=employer_name, role=job_role) }}"
+        >Download Cover Letter (Word)
+      </a>
+    </p>
   </body>
 </html>
