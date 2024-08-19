@@ -1,7 +1,0 @@
-\begin{rSection}{EXPERIENCE RELEVANT TO {THE_ROLE}}
-\textbf{Graduate Research Assistant at Portland State University} \hfill 2023 - 2024
-\begin{itemize}
-    \item \textbf{Relevant Expertise for {THE_COMPANY}}: Utilized {RELEVANT_SKILL_OR_TOOL_FROM_JOB_DESCRIPTION} to achieve {SPECIFIC_ACHIEVEMENT_RELATED_TO_JOB_DESCRIPTION}, demonstrating a strong alignment with {THE_COMPANY}’s focus on {ANOTHER_SPECIFIC_REQUIREMENT_FROM_JOB_DESCRIPTION}. Honed advanced skills in {ANOTHER_RELEVANT_SKILL}. \href{https://github.com/williammcintosh/WMT_excel_merger}{GitHub Repo}
-    \item \textbf{Revolutionized Process Automation and Coordination}: Engineered a Python script that slashed Excel data entry time from eight hours to mere minutes, integrating county-wide waste management datasets and identifying historical anomalies. Streamlined annual bulk waste removal events for 30+ business tenants, significantly enhancing efficiency and effectiveness in waste management.
-    \item \textbf{Optimized Operational Management}: Conducted weekly waste area inspections, built professional relationships with local partners, and strategically managed tenant-generated materials, achieving ambitious recycling and reuse targets.
-\end{itemize}
