@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Will McIntosh Portfolio</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <!-- GCP Google Maps api key (domain restricted) -->
+  <script>
+    async function initMap() {
+      // Fetch the API key from your endpoint
+      const response = await fetch(
+        'https://australia-southeast1-uk-food-donation.cloudfunctions.net/google-maps-api-key-function'
+      );
+      const data = await response.json();
+
+      // Load the Google Maps script dynamically
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&callback=mapCallback`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    function mapCallback() {
+      // Initialize your map here
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initMap);
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-QQM8BW242M"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QQM8BW242M');
+  </script>
+  <body class="is-preload">
+    <!-- Nav -->
+    <nav id="nav">
+      <ul class="container">
+        <li><a href="#top">Top</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+      </ul>
+    </nav>
+
+    <!-- Home -->
+    <article id="top" class="wrapper style1">
+      <div class="container">
+        <div class="row">
+          <div class="col-8 col-7-large col-12-medium">
+            <header>
+              <h1>UK Food Donation Map</h1>
+            </header>
+            <p>
+              This page shows how UK Food Donations can be delivered to fulfill
+              needs throughout the country.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article id="portfolio" class="wrapper style5">
+      <div class="container">
+        <header>
+          <h2>Some Second Header Here</h2>
+        </header>
+        <!-- Map Container -->
+        <div id="map" style="height: 400px; width: 100%"></div>
+      </div>
+    </article>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
