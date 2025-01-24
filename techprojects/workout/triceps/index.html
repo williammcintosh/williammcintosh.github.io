@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WORKOUT GIFS!</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-QQM8BW242M"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-QQM8BW242M');
+  </script>
+  <body class="is-preload">
+    <!-- Nav -->
+    <nav id="nav">
+      <div class="container">
+        <div class="nav-header">
+          <button class="nav-toggle" id="nav-toggle">☰</button>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#triceps">Triceps</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- JavaScript function to create the repeated structure -->
+    <script>
+      function createWorkoutBox(imageSrc, title) {
+        return `
+            <div class="col-4 col-6-medium col-12-small">
+                <article class="box style2">
+                    <a class="image featured" target="_blank">
+                        <img src="${imageSrc}" alt="${title}" />
+                    </a>
+                    <h4><a>${title}</a></h4>
+                </article>
+            </div>
+            `;
+      }
+
+      function insertWorkoutBoxes() {
+        const tricepsContainer = document.querySelector('#triceps .row');
+
+        const tricepsWorkouts = [
+          {
+            img: 'images/tricep_pulldowns-cut-resize.gif',
+            title: 'Tricep Pulldown',
+          },
+          { img: 'images/dips_plus-cut-resize.gif', title: 'Dip' },
+          {
+            img: 'images/overhead_tricep_ext-cut-resize.gif',
+            title: 'Overhead Tricep Ext.',
+          },
+        ];
+
+        tricepsWorkouts.forEach(
+          (workout) =>
+            (tricepsContainer.innerHTML += createWorkoutBox(
+              workout.img,
+              workout.title
+            ))
+        );
+      }
+
+      document.addEventListener('DOMContentLoaded', insertWorkoutBoxes);
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        navToggle.addEventListener('click', function () {
+          navMenu.classList.toggle('nav-menu-visible');
+        });
+
+        navLinks.forEach((link) => {
+          link.addEventListener('click', function () {
+            navMenu.classList.remove('nav-menu-visible');
+          });
+        });
+      });
+    </script>
+
+    <article id="triceps" class="wrapper style5">
+      <div class="container">
+        <header>
+          <h2>Triceps</h2>
+          <hr class="full-width-line" />
+        </header>
+        <div class="row"></div>
+      </div>
+    </article>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
