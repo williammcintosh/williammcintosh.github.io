@@ -39,9 +39,17 @@
     <!-- Try loading GitHub Secrets first, then fall back to local file -->
     <script>
       async function getApiKey() {
+        // Detect if running Netlify Dev locally
+        const isLocalNetlify = window.location.hostname === 'localhost';
+
+        // Set the correct API endpoint
+        const secretUrl = isLocalNetlify
+          ? 'http://localhost:8888/.netlify/functions/get-secret' // Local Netlify function
+          : '/.netlify/functions/get-secret'; // Production Netlify function
+
         try {
-          console.log('Fetching API key from Netlify...');
-          const response = await fetch('/.netlify/functions/get-secret');
+          console.log('Fetching API key from:', secretUrl);
+          const response = await fetch(secretUrl);
           if (response.ok) {
             const data = await response.json();
             if (data.apiKey === 'API_KEY_NOT_SET') {
