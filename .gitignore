@@ -1,2 +1,5 @@
 .env
 references-resources/api_key.js
+
+# Local Netlify folder
+.netlify
