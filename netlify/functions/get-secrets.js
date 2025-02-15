@@ -16,7 +16,7 @@ exports.handler = async function () {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to fetch Google Drive files' }),
+      body: JSON.stringify({ error: 'Failed to fetch Google Drive files.' }),
     };
   }
 };
