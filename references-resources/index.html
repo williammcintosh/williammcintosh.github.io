@@ -35,56 +35,18 @@
 
     <h1>Google Drive Files</h1>
     <ul id="drive-files"></ul>
-
-    <!-- Try loading GitHub Secrets first, then fall back to local file -->
     <script>
-      async function getApiKey() {
-        // Detect if running Netlify Dev locally
-        const isLocalNetlify = window.location.hostname === 'localhost';
-
-        // Set the correct API endpoint
-        const secretUrl = isLocalNetlify
-          ? 'http://localhost:8888/.netlify/functions/get-secrets'
-          : '/.netlify/functions/get-secrets';
-
-        try {
-          console.log('Fetching API key from:', secretUrl);
-          const response = await fetch(secretUrl);
-          if (response.ok) {
-            const data = await response.json();
-            if (data.apiKey === 'API_KEY_NOT_SET') {
-              throw new Error('Netlify environment variable not set.');
-            }
-            return data.apiKey;
-          } else {
-            throw new Error('Netlify function not available.');
-          }
-        } catch (error) {
-          console.error('Failed to fetch API key:', error.message);
-          return null;
-        }
-      }
-
-      const DRIVE_FOLDER_ID = '1x2iC7QAf8vH2rRu4jg_OU-KOACls8zNz'; // Define the folder ID
+      const DRIVE_FOLDER_ID = '1x2iC7QAf8vH2rRu4jg_OU-KOACls8zNz';
+      const API_KEY = 'AIzaSyB9Z6IbDXNYYQmRQHogGThYx60tH8LZbHo';
 
       async function fetchDriveFiles() {
-        const apiKey = await getApiKey();
-        if (!apiKey) {
-          console.error('Failed to fetch API key. Stopping execution.');
-          return;
-        }
-
-        const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${apiKey}`;
-
         try {
+          const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
           const response = await fetch(url);
           const data = await response.json();
-          const filesList = document.getElementById('drive-files');
 
-          if (!filesList) {
-            console.error("Error: Element with ID 'drive-files' not found.");
-            return;
-          }
+          const filesList = document.getElementById('drive-files');
+          filesList.innerHTML = ''; // Clear previous content
 
           if (data.files && data.files.length > 0) {
             data.files.forEach((file) => {
@@ -97,12 +59,13 @@
           }
         } catch (error) {
           console.error('Error fetching files:', error);
+          document.getElementById('drive-files').innerHTML =
+            '<li>Failed to load files.</li>';
         }
       }
 
       fetchDriveFiles();
     </script>
-
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
