@@ -26,15 +26,32 @@
   <body class="is-preload">
     <!-- Nav -->
     <nav id="nav">
-      <div class="container">
-        <div class="nav-header">
-          <button class="nav-toggle" id="nav-toggle">☰</button>
-        </div>
-      </div>
+      <ul class="container">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#prac1a">Practicum 1A</a></li>
+        <li>
+          <a
+            href="https://www.wmm.co.nz/reflection-resources-1a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Reflection Resources 1a</a
+          >
+        </li>
+        <li><a href="#prac1b">Practicum 1B</a></li>
+        <li><a href="#prac2">Practicum 2</a></li>
+        <li>
+          <a
+            href="https://www.wmm.co.nz/techprojects/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Tech Projects</a
+          >
+        </li>
+      </ul>
     </nav>
 
-    <h1>Google Drive Files</h1>
-    <ul id="drive-files"></ul>
+    <div id="drive-files" class="file-grid"></div>
     <script>
       const DRIVE_FOLDER_ID = '1x2iC7QAf8vH2rRu4jg_OU-KOACls8zNz';
       const API_KEY = 'AIzaSyB9Z6IbDXNYYQmRQHogGThYx60tH8LZbHo';
@@ -45,27 +62,34 @@
           const response = await fetch(url);
           const data = await response.json();
 
-          const filesList = document.getElementById('drive-files');
-          filesList.innerHTML = ''; // Clear previous content
+          const filesGrid = document.getElementById('drive-files');
+          filesGrid.innerHTML = ''; // Clear previous content
 
           if (data.files && data.files.length > 0) {
             data.files.forEach((file) => {
-              const li = document.createElement('li');
-              li.innerHTML = `<a href="https://drive.google.com/uc?export=view&id=${file.id}" target="_blank">${file.name}</a>`;
-              filesList.appendChild(li);
+              const fileTile = document.createElement('div');
+              fileTile.classList.add('file-tile');
+
+              fileTile.innerHTML = `
+          <iframe src="https://drive.google.com/file/d/${file.id}/preview" width="400" height="200"></iframe>
+          <h4><a href="https://drive.google.com/file/d/${file.id}/view" target="_blank">${file.name}</a></h4>
+        `;
+
+              filesGrid.appendChild(fileTile);
             });
           } else {
-            filesList.innerHTML = '<li>No files found.</li>';
+            filesGrid.innerHTML = '<p>No files found.</p>';
           }
         } catch (error) {
           console.error('Error fetching files:', error);
           document.getElementById('drive-files').innerHTML =
-            '<li>Failed to load files.</li>';
+            '<p>Failed to load files.</p>';
         }
       }
 
       fetchDriveFiles();
     </script>
+    <!-- </article> -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
