@@ -34,28 +34,49 @@
     </nav>
 
     <h1>Google Drive Files</h1>
-
     <ul id="drive-files"></ul>
 
-    <script src="api_key.js"></script>
-
-    <!-- Scripts -->
+    <!-- Try loading GitHub Secrets first, then fall back to local file -->
     <script>
-      const DRIVE_FOLDER_ID = '1x2iC7QAf8vH2rRu4jg_OU-KOACls8zNz';
-
       async function getApiKey() {
+        // Check if running on Netlify (production mode)
+        const isProduction =
+          window.location.hostname !== '127.0.0.1' &&
+          window.location.hostname !== 'localhost';
+
+        if (isProduction) {
+          try {
+            // Try fetching API key from GitHub Secrets
+            const response = await fetch('/.netlify/functions/get-secret');
+            if (response.ok) {
+              const data = await response.json();
+              return data.apiKey; // API key from GitHub Secrets
+            } else {
+              throw new Error('GitHub Secrets not available');
+            }
+          } catch (error) {
+            console.warn(
+              'GitHub Secrets not available, falling back to local API key:',
+              error.message
+            );
+          }
+        }
+
+        // Fallback to local api_key.js for development
         try {
-          const response = await fetch('references-resources/api_key.js');
-          if (!response.ok) throw new Error('API key file not found');
+          const response = await fetch('/references-resources/api_key.js');
+          if (!response.ok) throw new Error('Local API key file not found');
 
           const text = await response.text();
-          const apiKey = text.match(/'([^']+)'/)[1]; // Extract API key
+          const apiKey = text.match(/'([^']+)'/)[1]; // Extract API key from JS file
           return apiKey;
         } catch (error) {
-          console.warn('API key file missing, using local fallback.');
-          return 'YOUR-LOCAL-API-KEY-HERE'; // Change this for local development
+          console.error('No valid API key found:', error.message);
+          return null;
         }
       }
+
+      const DRIVE_FOLDER_ID = '1x2iC7QAf8vH2rRu4jg_OU-KOACls8zNz'; // Define the folder ID
 
       async function fetchDriveFiles() {
         const apiKey = await getApiKey();
@@ -94,6 +115,7 @@
       fetchDriveFiles();
     </script>
 
+    <script src="references-resources/api_key.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
