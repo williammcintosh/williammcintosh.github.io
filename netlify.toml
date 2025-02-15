@@ -1,5 +1,5 @@
 [build]
-  publish = "."  # Or "references-resources" if your site is inside a subfolder
+  publish = "."
   functions = "netlify/functions"
 
 [[redirects]]
