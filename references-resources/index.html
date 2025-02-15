@@ -44,8 +44,8 @@
 
         // Set the correct API endpoint
         const secretUrl = isLocalNetlify
-          ? 'http://localhost:8888/.netlify/functions/get-secret' // Local Netlify function
-          : '/.netlify/functions/get-secret'; // Production Netlify function
+          ? 'http://localhost:8888/.netlify/functions/get-secrets'
+          : '/.netlify/functions/get-secrets';
 
         try {
           console.log('Fetching API key from:', secretUrl);
