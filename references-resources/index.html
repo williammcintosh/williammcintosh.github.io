@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Google Drive Files</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-QQM8BW242M"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-QQM8BW242M');
+  </script>
+  <body class="is-preload">
+    <!-- Nav -->
+    <nav id="nav">
+      <div class="container">
+        <div class="nav-header">
+          <button class="nav-toggle" id="nav-toggle">☰</button>
+        </div>
+      </div>
+    </nav>
+
+    <h1>Google Drive Files</h1>
+
+    <ul id="drive-files"></ul>
+
+    <script src="api_key.js"></script>
+
+    <!-- Scripts -->
+    <script>
+      const DRIVE_FOLDER_ID = '1x2iC7QAf8vH2rRu4jg_OU-KOACls8zNz';
+
+      async function getApiKey() {
+        try {
+          const response = await fetch('references-resources/api_key.js');
+          if (!response.ok) throw new Error('API key file not found');
+
+          const text = await response.text();
+          const apiKey = text.match(/'([^']+)'/)[1]; // Extract API key
+          return apiKey;
+        } catch (error) {
+          console.warn('API key file missing, using local fallback.');
+          return 'YOUR-LOCAL-API-KEY-HERE'; // Change this for local development
+        }
+      }
+
+      async function fetchDriveFiles() {
+        const apiKey = await getApiKey();
+        // const apiKey = 'AIzaSyA88eq1VrZG3iv8YzfhZsP3_8ey4cVkXrQ';
+        if (!apiKey) {
+          console.error('Failed to fetch API key. Stopping execution.');
+          return;
+        }
+
+        const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${apiKey}`;
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          const filesList = document.getElementById('drive-files');
+
+          if (!filesList) {
+            console.error("Error: Element with ID 'drive-files' not found.");
+            return;
+          }
+
+          if (data.files && data.files.length > 0) {
+            data.files.forEach((file) => {
+              const li = document.createElement('li');
+              li.innerHTML = `<a href="https://drive.google.com/uc?export=view&id=${file.id}" target="_blank">${file.name}</a>`;
+              filesList.appendChild(li);
+            });
+          } else {
+            filesList.innerHTML = '<li>No files found.</li>';
+          }
+        } catch (error) {
+          console.error('Error fetching files:', error);
+        }
+      }
+
+      fetchDriveFiles();
+    </script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
