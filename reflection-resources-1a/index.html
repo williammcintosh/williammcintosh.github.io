@@ -29,22 +29,24 @@
       <ul class="container">
         <li><a href="#home">Home</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#prac1a">Practicum 1A</a></li>
-        <li>
-          <a
-            href="https://www.wmm.co.nz/reflection-resources-1a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Reflection Resources 1a</a
-          >
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Reflection Resources &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#one">One</a></li>
+            <li><a href="#two">Two</a></li>
+            <li><a href="#three">Three</a></li>
+          </ul>
         </li>
-        <li><a href="#prac1b">Practicum 1B</a></li>
-        <li><a href="#prac2">Practicum 2</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Practicums &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="/reflection-resources-1a/">1A</a></li>
+            <li><a href="#one-b">1B</a></li>
+            <li><a href="#two">2</a></li>
+          </ul>
+        </li>
         <li>
-          <a
-            href="https://www.wmm.co.nz/techprojects/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a href="/techprojects/" target="_blank" rel="noopener noreferrer"
             >Tech Projects</a
           >
         </li>
@@ -88,6 +90,28 @@
       }
 
       fetchDriveFiles();
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document
+          .querySelectorAll('.dropdown-content')
+          .forEach((dropdown) => (dropdown.style.display = 'none'));
+
+        document.querySelectorAll('.dropbtn').forEach((button) => {
+          button.addEventListener('click', function (e) {
+            e.preventDefault();
+            let dropdown = this.nextElementSibling;
+
+            // Close all dropdowns except the one being clicked
+            document.querySelectorAll('.dropdown-content').forEach((menu) => {
+              if (menu !== dropdown) menu.style.display = 'none';
+            });
+
+            dropdown.style.display =
+              dropdown.style.display === 'block' ? 'none' : 'block';
+          });
+        });
+      });
     </script>
     <!-- </article> -->
     <script src="assets/js/jquery.min.js"></script>
