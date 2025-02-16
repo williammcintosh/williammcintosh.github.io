@@ -139,11 +139,21 @@ ul.social li .icon-label {
 }
 
 .file-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #f4f4f4;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-tile .iframe-wrapper {
+  flex-grow: 1; /* Makes the iframe take up available space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .file-tile iframe {
@@ -348,4 +358,33 @@ nav#nav ul li a:hover {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.preview-button {
+  display: inline-block;
+  width: 120px;
+  padding: 8px 12px;
+  margin: 10px auto 0;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  background-color: #005aaf;
+  box-shadow: 6px 6px 0px #002d81;
+  position: relative;
+}
+
+.preview-button:hover {
+  background-color: #006acd;
+  transform: translateX(-2px) translateY(-2px);
+  box-shadow: 8px 8px 0px #002d81;
+}
+
+.preview-button:active {
+  background-color: #00407b;
+  transform: translateX(2px) translateY(2px);
+  box-shadow: 4px 4px 0px #002d81;
 }
