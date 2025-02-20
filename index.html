@@ -26,21 +26,17 @@
   </script>
   <body class="is-preload">
     <!-- Nav -->
-    <nav id="nav">
-      <ul class="container">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#prac1a">Practicum 1A</a></li>
-        <li><a href="/reflection-resources-1a/">Reflection Resources 1a</a></li>
-        <li><a href="#prac1b">Practicum 1B</a></li>
-        <li><a href="#prac2">Practicum 2</a></li>
-        <li>
-          <a href="/techprojects/" target="_blank" rel="noopener noreferrer"
-            >Tech Projects</a
-          >
-        </li>
-      </ul>
-    </nav>
+    <script src="/assets/js/navbar.js" defer></script>
+    <div id="navbar"></div>
+
+    <script>
+      fetch('/navbar.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('navbar').innerHTML = data;
+        })
+        .catch((error) => console.error('Error loading navbar:', error));
+    </script>
 
     <!-- Home -->
     <!-- <article id="top" class="wrapper style1"> -->
@@ -74,9 +70,9 @@
             </p>
             <h2>TENACITY & LIFELONG LEARNING</h2>
             <p>
-              I’m naturally curious and always look for ways to improve, both
+              I'm naturally curious and always look for ways to improve, both
               for myself and my students. I never give up on kaupapa (important
-              matters) and always find new ways to explain concepts. I’d also
+              matters) and always find new ways to explain concepts. I'd also
               love to support extracurricular activities like chess clubs,
               robotics, or rock climbing, as these align with my passion for
               helping students build māia (confidence) and explore their

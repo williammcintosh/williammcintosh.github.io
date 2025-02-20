@@ -1,0 +1,144 @@
+/* NAVBAR STUFF */
+nav#nav {
+  margin-bottom: 14em; /* Prevents overlap with page content */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures navbar stays above content */
+}
+
+nav#nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 1.5em 0;
+  margin: 0;
+  background-color: #333;
+  color: #fff;
+}
+
+nav#nav ul li {
+  margin: 0 1em;
+}
+
+nav#nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+nav#nav ul li a:hover {
+  background-color: #555;
+}
+
+#nav ul.container {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  background: rgba(40, 40, 40, 0.9);
+}
+
+#nav ul.container li {
+  padding-left: 0;
+}
+
+#nav ul.container a {
+  transition: background-color 0.2s ease-in-out;
+  position: relative;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  font-weight: 600;
+  border-radius: 8px;
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 1.25em;
+}
+
+#nav ul.container a:hover {
+  color: #fff !important;
+  background: #383838;
+}
+
+#nav ul.container a.active {
+  background: #484848;
+}
+
+#nav ul.container a.active:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -0.6em;
+  left: 50%;
+  margin-left: -0.75em;
+  border-left: solid 0.75em transparent;
+  border-right: solid 0.75em transparent;
+  border-top: solid 0.6em #282828;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown-content.active {
+  display: block !important;
+  visibility: visible;
+  opacity: 1;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #444;
+  min-width: 150px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(40, 40, 40, 0.9);
+  }
+
+  .nav-menu.nav-menu-visible {
+    display: flex;
+  }
+
+  .nav-menu li {
+    padding: 0.5em 0;
+  }
+
+  .nav-menu a {
+    padding: 0.5em 1em;
+  }
+}
