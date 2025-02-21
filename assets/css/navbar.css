@@ -117,28 +117,44 @@ nav#nav ul li a:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+/* Hides the navbar by default on small screens */
 @media (max-width: 768px) {
-  .nav-toggle {
+  #nav-toggle {
     display: block;
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100; /* Ensures it's above the navbar */
   }
 
-  .nav-menu {
+  nav#nav ul.container {
     display: none;
     flex-direction: column;
-    align-items: center;
-    background: rgba(40, 40, 40, 0.9);
+    background: rgba(40, 40, 40, 0.95);
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
   }
 
-  .nav-menu.nav-menu-visible {
+  nav#nav ul.container.nav-menu-visible {
     display: flex;
   }
 
-  .nav-menu li {
-    padding: 0.5em 0;
-  }
-
-  .nav-menu a {
-    padding: 0.5em 1em;
+  /* Style the dropdowns inside the opened menu */
+  .dropdown .dropdown-content {
+    position: static;
+    transform: none;
+    background: none;
+    box-shadow: none;
   }
 }

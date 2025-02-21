@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Now that the navbar is loaded, initialize dropdown functionality
         attachDropdownListeners();
+        setupHamburgerMenu();
       } else {
         console.error('Navbar container not found.');
       }
@@ -57,6 +58,39 @@ function attachDropdownListeners() {
       });
     }
   });
+  // console.log('Dropdown event listeners attached.');
+}
 
-  console.log('Dropdown event listeners attached.');
+function setupHamburgerMenu() {
+  console.log('Setting up hamburger menu...');
+
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.querySelector('nav#nav ul.container');
+
+  if (!navToggle) {
+    console.error('Hamburger menu button (#nav-toggle) not found.');
+    return;
+  }
+
+  if (!navMenu) {
+    console.error('Navbar menu (ul.container) not found.');
+    return;
+  }
+
+  navToggle.addEventListener('click', function () {
+    console.log('Hamburger menu clicked!');
+    navMenu.classList.toggle('nav-menu-visible');
+  });
+
+  // Close menu if user clicks outside it
+  document.addEventListener('click', function (event) {
+    if (
+      !event.target.closest('#nav-toggle') &&
+      !event.target.closest('nav#nav')
+    ) {
+      navMenu.classList.remove('nav-menu-visible');
+    }
+  });
+
+  console.log('Hamburger menu setup complete.');
 }
