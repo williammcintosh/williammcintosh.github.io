@@ -100,6 +100,22 @@
         });
       });
     </script>
+
+    <!-- Contact -->
+    <div id="contactbar"></div>
+
+    <script>
+      fetch('/contactbar.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('contactbar').innerHTML = data;
+          // Ensure only the default contact is shown
+          document.querySelector('.full-contact').style.display = 'none';
+          document.querySelector('.default-contact').style.display = 'flex';
+        })
+        .catch((error) => console.error('Error loading contact bar:', error));
+    </script>
+
     <!-- </article> -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
