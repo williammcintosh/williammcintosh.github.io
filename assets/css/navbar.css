@@ -117,6 +117,23 @@ nav#nav ul li a:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* When screen is 1024px or smaller, slightly shrink font & padding */
+/* @media (max-width: 1024px) {
+  nav#nav ul.container a {
+    font-size: 16px;
+    padding: 0.6em 1.2em;
+  }
+} */
+
+/* When screen is 900px or smaller, shrink more */
+@media (max-width: 950px) {
+  nav#nav ul.container a {
+    font-size: 12px;
+    padding: 0.5em 1.5em;
+  }
+}
+
 /* Hides the navbar by default on small screens */
 @media (max-width: 768px) {
   #nav-toggle {
@@ -144,6 +161,11 @@ nav#nav ul li a:hover {
     padding: 10px 0;
     text-align: center;
     z-index: 1000;
+  }
+
+  nav#nav ul.container a {
+    font-size: 18px;
+    padding: 0.75em 1.5em;
   }
 
   nav#nav ul.container.nav-menu-visible {

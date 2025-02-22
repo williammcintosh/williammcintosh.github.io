@@ -100,70 +100,21 @@
         </div>
       </div>
     </article>
-    <article id="contact" class="wrapper style4">
-      <div class="social-wrapper">
-        <ul class="social">
-          <li>
-            <a
-              href="https://www.seek.com.au/profile/william-mcintosh-WssLmBQNLf"
-              class="icon brands seek-icon"
-              target="_blank"
-            >
-              <img src="images/seek.png" alt="Seek" />
-            </a>
-            <span class="icon-label">Seek</span>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/will-gradient-ascent"
-              class="icon brands linkedin-icon"
-              target="_blank"
-            >
-              <img src="images/LinkedIn.png" alt="LinkedIn" />
-            </a>
-            <span class="icon-label">LinkedIn</span>
-          </li>
-          <li>
-            <a
-              href="https://github.com/williammcintosh"
-              class="icon brands github-icon"
-              target="_blank"
-            >
-              <img src="images/GitHub.png" alt="GitHub" />
-            </a>
-            <span class="icon-label">GitHub</span>
-          </li>
-          <li>
-            <a href="mailto:will@ahead.nz" class="icon brands email-icon">
-              <img src="images/Email.png" alt="Email" />
-            </a>
-            <span class="icon-label">Email</span>
-          </li>
-          <li>
-            <a
-              href="https://ahead.nz/projects/twitter/index.html"
-              class="icon brands x-icon"
-              target="_blank"
-            >
-              <img src="images/x_icon.png" alt="X-twitter" />
-            </a>
-            <span class="icon-label">X</span>
-          </li>
-          <li>
-            <a
-              href="https://docs.google.com/document/d/1DEYSbRWrKHphNhOTIsVReI-Bph-riAC0C7L5kdyYCmE/export?format=pdf"
-              class="icon brands resume-icon"
-              target="_blank"
-            >
-              <img src="images/resume.png" alt="resume" />
-            </a>
-            <span class="icon-label">Resume</span>
-          </li>
-        </ul>
-      </div>
-    </article>
 
     <!-- Contact -->
+    <div id="contactbar"></div>
+
+    <script>
+      fetch('/contactbar.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('contactbar').innerHTML = data;
+          // Ensure only the default contact is shown
+          document.querySelector('.full-contact').style.display = 'none';
+          document.querySelector('.default-contact').style.display = 'flex';
+        })
+        .catch((error) => console.error('Error loading contact bar:', error));
+    </script>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>

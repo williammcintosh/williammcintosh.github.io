@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700');
-@import url('/assets/css/navbar.css');
+@import url('../../../assets/css/navbar.css');
+@import url('../../../assets/css/contactbar.css');
 
 /* Global Styles */
 body {
@@ -41,95 +42,6 @@ p {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.social-wrapper {
-  background-color: #333;
-  padding: 1em;
-  border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  max-width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-ul.social {
-  list-style: none;
-  padding: 0.1em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
-  background-color: #333 !important;
-  border-radius: 8px;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-ul.social li {
-  position: relative;
-  display: inline-block;
-  margin: 0.5em;
-}
-
-ul.social li a {
-  display: block;
-  width: 65px;
-  height: 65px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-ul.social li a img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-ul.social li a:hover {
-  transform: scale(1.1);
-  filter: brightness(90%);
-}
-
-ul.social li a:active {
-  filter: brightness(120%);
-}
-
-ul.social li .icon-label {
-  color: #fff;
-  font-size: 1.5em;
-  margin-top: 0.5em;
-  display: block;
-  text-align: center;
-}
-
-/* Individual Button Colors */
-.icon.brands.seek-icon {
-  background-color: #d32e77;
-}
-
-.icon.brands.linkedin-icon {
-  background-color: #0077b5;
-}
-
-.icon.brands.github-icon {
-  background-color: #6cc644;
-}
-
-.icon.brands.email-icon {
-  background-color: #ed7902;
-}
-
-.icon.brands.x-icon {
-  background-color: #657786;
-}
-
-.icon.brands.resume-icon {
-  background-color: #f2eee5;
 }
 
 .file-grid {
