@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Reflection Resources Docs</title>
+    <title>PNGHS 10MAT Resources</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -40,7 +40,7 @@
     <!-- G Drive File Fetching -->
     <div id="drive-files" class="file-grid"></div>
     <script>
-      const DRIVE_FOLDER_ID = '1hoZDnHV6OXmfGdFR-klNLsCTZXygzNpL';
+      const DRIVE_FOLDER_ID = '1M0BAxf70sIEVAQlLiS9ER-gJjyw3wL-W';
       const API_KEY = 'AIzaSyB9Z6IbDXNYYQmRQHogGThYx60tH8LZbHo';
 
       async function fetchDriveFiles() {
@@ -78,39 +78,6 @@
 
       fetchDriveFiles();
     </script>
-
-    <script>
-      function addSubfolderTilePNGHS10MAT() {
-        const filesGrid = document.getElementById('drive-files');
-        const folderTile = document.createElement('div');
-        folderTile.classList.add('file-tile');
-
-        folderTile.innerHTML = `
-          <img src="images/folder-icon.png" width="400" height="200" />
-          <h4><a href="../pnghs-10mat-resources/index.html">My PNGHS 10MAT Resources</a></h4>
-          <a href="../pnghs-10mat-resources/index.html" class="preview-button">Open Folder</a>
-        `;
-
-        filesGrid.appendChild(folderTile);
-      }
-    </script>
-
-    <script>
-      function addSubfolderTilePNGHS11MFD() {
-        const filesGrid = document.getElementById('drive-files');
-        const folderTile = document.createElement('div');
-        folderTile.classList.add('file-tile');
-
-        folderTile.innerHTML = `
-          <img src="images/folder-icon.png" width="400" height="200" />
-          <h4><a href="../pnghs-11mfd-resources/index.html">My PNGHS 11MFD Resources</a></h4>
-          <a href="../pnghs-11mfd-resources/index.html" class="preview-button">Open Folder</a>
-        `;
-
-        filesGrid.appendChild(folderTile);
-      }
-    </script>
-
     <script>
       function embedYouTubeVideo(videoId, title = 'Watch Video') {
         const filesGrid = document.getElementById('drive-files');
@@ -129,8 +96,6 @@
 
       // Run this after Drive files are fetched
       fetchDriveFiles().then(() => {
-        addSubfolderTilePNGHS10MAT();
-        addSubfolderTilePNGHS11MFD();
         embedYouTubeVideo('uZ1ECxaJcc0', 'Reflection Walkthrough');
       });
     </script>
