@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700');
+@import url('/assets/css/navbar.css');
+
+/* Global Styles */
+body {
+  padding-top: 80px;
+  background-image: url('images/bg.png');
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  margin: 0.2em 0 0 0;
+  font-size: 3.25em;
+  letter-spacing: -0.025em;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5em;
+  letter-spacing: -0.015em;
+}
+
+p {
+  line-height: 1.6em;
+  font-size: 1.1em;
+}
+
+.subheader {
+  font-size: 1.25em;
+  font-weight: 300;
+  color: #555;
+  margin: 0 0 0.5em 0;
+  text-align: left;
+}
+
+.wrapper {
+  padding: 6em 2em 2em;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-wrapper {
+  background-color: #333;
+  padding: 1em;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+ul.social {
+  list-style: none;
+  padding: 0.1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  background-color: #333 !important;
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+ul.social li {
+  position: relative;
+  display: inline-block;
+  margin: 0.5em;
+}
+
+ul.social li a {
+  display: block;
+  width: 65px;
+  height: 65px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+ul.social li a img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul.social li a:hover {
+  transform: scale(1.1);
+  filter: brightness(90%);
+}
+
+ul.social li a:active {
+  filter: brightness(120%);
+}
+
+ul.social li .icon-label {
+  color: #fff;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+  display: block;
+  text-align: center;
+}
+
+/* Individual Button Colors */
+.icon.brands.seek-icon {
+  background-color: #d32e77;
+}
+
+.icon.brands.ogs-icon {
+  background-color: #e0b02ddc;
+}
+
+.icon.brands.linkedin-icon {
+  background-color: #0077b5;
+}
+
+.icon.brands.github-icon {
+  background-color: #6cc644;
+}
+
+.icon.brands.email-icon {
+  background-color: #ed7902;
+}
+
+.icon.brands.x-icon {
+  background-color: #657786;
+}
+
+.icon.brands.resume-icon {
+  background-color: #f2eee5;
+}
+
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.file-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f4f4f4;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-tile .iframe-wrapper {
+  flex-grow: 1; /* Makes the iframe take up available space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-tile iframe {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+.file-tile h4 a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.file-tile h4 a:hover {
+  color: #0073e6;
+}
+
+/* Header Image Styles */
+.image.fit {
+  float: left;
+  margin: 1.5em 2.5em 0 1em;
+}
+
+.image.fit img {
+  max-width: 15em;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .image.fit {
+    float: none;
+    margin: 0 auto 1.5em auto;
+    display: block;
+    text-align: center;
+  }
+
+  .image.fit img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.preview-button {
+  display: inline-block;
+  width: 120px;
+  padding: 8px 12px;
+  margin: 10px auto 0;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  background-color: #005aaf;
+  box-shadow: 6px 6px 0px #002d81;
+  position: relative;
+}
+
+.preview-button:hover {
+  background-color: #006acd;
+  transform: translateX(-2px) translateY(-2px);
+  box-shadow: 8px 8px 0px #002d81;
+}
+
+.preview-button:active {
+  background-color: #00407b;
+  transform: translateX(2px) translateY(2px);
+  box-shadow: 4px 4px 0px #002d81;
+}
