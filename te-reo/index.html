@@ -74,45 +74,29 @@
       }
 
       async function fetchYouTubeShorts() {
-        try {
-          const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YOUTUBE_CHANNEL_ID}&maxResults=10&order=date&type=video&key=${API_KEY}`;
-          const response = await fetch(url);
-          const data = await response.json();
+        const shorts = [
+          { id: 'UQfY6hjesqs', title: 'Inviting my students by name' },
+          { id: 'LQHhIJ0I_ok', title: 'Practicing our Ōkatia skit' },
+          { id: 'JlOjBy6gnIA', title: 'Colors in Te Reo' },
+          { id: 'DMnQhfAx6A8', title: 'Te Reo in Drops App' },
+          { id: 'Bv4sFwqnYzo', title: '"Feelings" skit in Te Reo Māori' },
+          { id: 'tB3D3QYug9Q', title: 'NZ vs US schools' },
+        ];
 
-          if (!data.items) {
-            console.error('No videos found.');
-            return;
-          }
+        const filesGrid = document.getElementById('drive-files');
 
-          const videoIds = data.items.map((item) => item.id.videoId).join(',');
+        shorts.forEach((video) => {
+          const videoTile = document.createElement('div');
+          videoTile.classList.add('file-tile');
 
-          // Now get the video durations to filter for Shorts
-          const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoIds}&key=${API_KEY}`;
-          const detailsResponse = await fetch(detailsUrl);
-          const detailsData = await detailsResponse.json();
+          videoTile.innerHTML = `
+      <iframe width="400" height="200" src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
+      <h4><a href="https://www.youtube.com/shorts/${video.id}" target="_blank">${video.title}</a></h4>
+      <a href="https://www.youtube.com/shorts/${video.id}" target="_blank" class="preview-button">Watch</a>
+    `;
 
-          const shorts = data.items.filter((item, index) => {
-            const duration = detailsData.items[index].contentDetails.duration;
-            return duration.includes('PT') && duration.includes('S');
-          });
-
-          const filesGrid = document.getElementById('drive-files');
-
-          shorts.forEach((video) => {
-            const videoTile = document.createElement('div');
-            videoTile.classList.add('file-tile');
-
-            videoTile.innerHTML = `
-              <iframe width="400" height="200" src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allowfullscreen></iframe>
-              <h4><a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">${video.snippet.title}</a></h4>
-              <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank" class="preview-button">Watch</a>
-            `;
-
-            filesGrid.appendChild(videoTile);
-          });
-        } catch (error) {
-          console.error('Error fetching YouTube Shorts:', error);
-        }
+          filesGrid.appendChild(videoTile);
+        });
       }
 
       async function loadContent() {
