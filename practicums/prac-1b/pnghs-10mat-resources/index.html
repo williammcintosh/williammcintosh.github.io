@@ -78,27 +78,6 @@
 
       fetchDriveFiles();
     </script>
-    <script>
-      function embedYouTubeVideo(videoId, title = 'Watch Video') {
-        const filesGrid = document.getElementById('drive-files');
-
-        const videoTile = document.createElement('div');
-        videoTile.classList.add('file-tile');
-
-        videoTile.innerHTML = `
-      <iframe width="400" height="200" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-      <h4><a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">${title}</a></h4>
-      <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="preview-button">Watch</a>
-    `;
-
-        filesGrid.appendChild(videoTile);
-      }
-
-      // Run this after Drive files are fetched
-      // fetchDriveFiles().then(() => {
-      //   embedYouTubeVideo('uZ1ECxaJcc0', 'Reflection Walkthrough');
-      // });
-    </script>
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
