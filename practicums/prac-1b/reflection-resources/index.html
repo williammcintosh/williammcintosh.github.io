@@ -45,7 +45,11 @@
 
       async function fetchDriveFiles() {
         try {
-          const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
+          // const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
+          const q = encodeURIComponent(
+            `'${DRIVE_FOLDER_ID}' in parents and trashed=false and mimeType!='application/vnd.google-apps.folder'`
+          );
+          const url = `https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id,name,mimeType),nextPageToken&key=${API_KEY}`;
           const response = await fetch(url);
           const data = await response.json();
 
@@ -80,32 +84,16 @@
     </script>
 
     <script>
-      function addSubfolderTilePNGHS10MAT() {
+      function addSubfolderTile(title, href) {
         const filesGrid = document.getElementById('drive-files');
         const folderTile = document.createElement('div');
         folderTile.classList.add('file-tile');
 
         folderTile.innerHTML = `
-          <img src="images/folder-icon.png" width="400" height="200" />
-          <h4><a href="../pnghs-10mat-resources/index.html">My PNGHS 10MAT Number Resources</a></h4>
-          <a href="../pnghs-10mat-resources/index.html" class="preview-button">Open Folder</a>
-        `;
-
-        filesGrid.appendChild(folderTile);
-      }
-    </script>
-
-    <script>
-      function addSubfolderTilePNGHS11MFD() {
-        const filesGrid = document.getElementById('drive-files');
-        const folderTile = document.createElement('div');
-        folderTile.classList.add('file-tile');
-
-        folderTile.innerHTML = `
-          <img src="images/folder-icon.png" width="400" height="200" />
-          <h4><a href="../pnghs-11mfd-resources/index.html">My PNGHS 11MFD Measurement Resources</a></h4>
-          <a href="../pnghs-11mfd-resources/index.html" class="preview-button">Open Folder</a>
-        `;
+      <img src="images/folder-icon.png" width="400" height="200" />
+      <h4><a href="${href}">${title}</a></h4>
+      <a href="${href}" class="preview-button">Open Folder</a>
+    `;
 
         filesGrid.appendChild(folderTile);
       }
@@ -129,9 +117,14 @@
 
       // Run this after Drive files are fetched
       fetchDriveFiles().then(() => {
-        addSubfolderTilePNGHS10MAT();
-        addSubfolderTilePNGHS11MFD();
-        // embedYouTubeVideo('uZ1ECxaJcc0', 'Reflection Walkthrough');
+        addSubfolderTile(
+          'My PNGHS 10MAT Measurement Resources',
+          'pnghs-10mat-measurement/index.html'
+        );
+        addSubfolderTile(
+          'My PNGHS 11MFD Measurement Resources',
+          'pnghs-11mfd-measurement/index.html'
+        );
       });
     </script>
 

@@ -45,7 +45,11 @@
 
       async function fetchDriveFiles() {
         try {
-          const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
+          // const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
+          const q = encodeURIComponent(
+            `'${DRIVE_FOLDER_ID}' in parents and trashed=false and mimeType!='application/vnd.google-apps.folder'`
+          );
+          const url = `https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id,name,mimeType),nextPageToken&key=${API_KEY}`;
           const response = await fetch(url);
           const data = await response.json();
 
@@ -77,6 +81,65 @@
       }
 
       fetchDriveFiles();
+    </script>
+    <script>
+      function addSubfolderTile(title, href) {
+        const filesGrid = document.getElementById('drive-files');
+        const folderTile = document.createElement('div');
+        folderTile.classList.add('file-tile');
+
+        folderTile.innerHTML = `
+      <img src="images/folder-icon.png" width="400" height="200" />
+      <h4><a href="${href}">${title}</a></h4>
+      <a href="${href}" class="preview-button">Open Folder</a>
+    `;
+
+        filesGrid.appendChild(folderTile);
+      }
+    </script>
+    <script>
+      function embedYouTubeVideo(videoId, title = 'Watch Video') {
+        const filesGrid = document.getElementById('drive-files');
+
+        const videoTile = document.createElement('div');
+        videoTile.classList.add('file-tile');
+
+        videoTile.innerHTML = `
+      <iframe width="400" height="200" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+      <h4><a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">${title}</a></h4>
+      <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="preview-button">Watch</a>
+    `;
+
+        filesGrid.appendChild(videoTile);
+      }
+
+      // Run this after Drive files are fetched
+      fetchDriveFiles().then(() => {
+        addSubfolderTile(
+          'My PNGHS 10MAT Patterns Resources',
+          'pnghs-10mat-patterns/index.html'
+        );
+        addSubfolderTile(
+          'My PNGHS 11MFD Trig Resources',
+          'pnghs-11mfd-trig/index.html'
+        );
+        addSubfolderTile(
+          'My Awatapu 9DIT 3D Modeling Resources',
+          'awatapu-9dit-3dmodeling/index.html'
+        );
+        addSubfolderTile(
+          'My Awatapu 9MAT Algebra Resources',
+          'awatapu-9mat-algebra/index.html'
+        );
+        addSubfolderTile(
+          'My Awatapu 10DIT Project Management Resources',
+          'awatapu-10dit-projectmanagement/index.html'
+        );
+        addSubfolderTile(
+          'My Awatapu 12MAS Probability & Stats Resources',
+          'awatapu-12mas-probability/index.html'
+        );
+      });
     </script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {

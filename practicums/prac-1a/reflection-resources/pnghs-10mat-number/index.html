@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Reflection Resources Docs</title>
+    <title>PNGHS 10MAT Number Resources</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -40,17 +40,12 @@
     <!-- G Drive File Fetching -->
     <div id="drive-files" class="file-grid"></div>
     <script>
-      const DRIVE_FOLDER_ID = '1hoZDnHV6OXmfGdFR-klNLsCTZXygzNpL';
+      const DRIVE_FOLDER_ID = '1gJ93DN6rIsVwohyvWX5eolhySjWsHcpD';
       const API_KEY = 'AIzaSyB9Z6IbDXNYYQmRQHogGThYx60tH8LZbHo';
 
       async function fetchDriveFiles() {
         try {
-          // const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
-          const q = encodeURIComponent(
-            `'${DRIVE_FOLDER_ID}' in parents and trashed=false and mimeType!='application/vnd.google-apps.folder'`
-          );
-          const url = `https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id,name,mimeType),nextPageToken&key=${API_KEY}`;
-
+          const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
           const response = await fetch(url);
           const data = await response.json();
 
@@ -83,23 +78,6 @@
 
       fetchDriveFiles();
     </script>
-
-    <script>
-      function addSubfolderTile(title, href) {
-        const filesGrid = document.getElementById('drive-files');
-        const folderTile = document.createElement('div');
-        folderTile.classList.add('file-tile');
-
-        folderTile.innerHTML = `
-      <img src="images/folder-icon.png" width="400" height="200" />
-      <h4><a href="${href}">${title}</a></h4>
-      <a href="${href}" class="preview-button">Open Folder</a>
-    `;
-
-        filesGrid.appendChild(folderTile);
-      }
-    </script>
-
     <script>
       function embedYouTubeVideo(videoId, title = 'Watch Video') {
         const filesGrid = document.getElementById('drive-files');
@@ -118,19 +96,7 @@
 
       // Run this after Drive files are fetched
       fetchDriveFiles().then(() => {
-        addSubfolderTile(
-          'My PNGHS 10MAT Number Resources',
-          'pnghs-10mat-number/index.html'
-        );
-        addSubfolderTile(
-          'My PNGHS 11MFD Chance & Data Resources',
-          'pnghs-11mfd-chancendata/index.html'
-        );
-        addSubfolderTile(
-          'My PNGHS 11MFD Numeracy Resources',
-          'pnghs-11mfd-numeracy/index.html'
-        );
-        embedYouTubeVideo('uZ1ECxaJcc0', 'Reflection Walkthrough');
+        // embedYouTubeVideo('uZ1ECxaJcc0', 'Reflection Walkthrough');
       });
     </script>
 
