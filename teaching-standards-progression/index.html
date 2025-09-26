@@ -45,7 +45,11 @@
 
       async function fetchDriveFiles() {
         try {
-          const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
+          // const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents&key=${API_KEY}`;
+          const q = encodeURIComponent(
+            `'${DRIVE_FOLDER_ID}' in parents and trashed=false and mimeType!='application/vnd.google-apps.folder'`
+          );
+          const url = `https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id,name,mimeType),nextPageToken&key=${API_KEY}`;
           const response = await fetch(url);
           const data = await response.json();
 
