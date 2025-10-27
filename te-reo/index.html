@@ -98,11 +98,19 @@
           const videoTile = document.createElement('div');
           videoTile.classList.add('file-tile');
 
+          let extraButton = '';
+          if (video.title.includes('Tākaro Waka')) {
+            extraButton = `<a href="https://www.wmm.co.nz/Takaro_Waka/" target="_blank" class="preview-button">Play</a>`;
+          }
+
           videoTile.innerHTML = `
-      <iframe width="400" height="200" src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
-      <h4><a href="https://www.youtube.com/shorts/${video.id}" target="_blank">${video.title}</a></h4>
+    <iframe width="400" height="200" src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
+    <h4><a href="https://www.youtube.com/shorts/${video.id}" target="_blank">${video.title}</a></h4>
+    <div class="button-group">
       <a href="https://www.youtube.com/shorts/${video.id}" target="_blank" class="preview-button">Watch</a>
-    `;
+      ${extraButton}
+    </div>
+  `;
 
           filesGrid.appendChild(videoTile);
         });
