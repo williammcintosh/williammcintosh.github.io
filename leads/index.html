@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leads | Will McIntosh</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      .leads-shell {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .leads-hero {
+        display: grid;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .leads-hero p {
+        max-width: 780px;
+      }
+
+      .leads-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .summary-stat,
+      .leads-controls,
+      .lead-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      .summary-stat {
+        padding: 1rem 1.1rem;
+      }
+
+      .summary-number {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .summary-label {
+        color: #666;
+        font-size: 0.95rem;
+      }
+
+      .leads-controls {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .leads-toolbar {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .toolbar-row {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .search-field input,
+      .sort-field select {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1px solid #d8d8d8;
+        border-radius: 12px;
+        font-size: 1rem;
+        background: #fff;
+      }
+
+      .sort-field {
+        display: grid;
+        gap: 0.35rem;
+        min-width: 260px;
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .status-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .status-pill {
+        border: 1px solid #d8d8d8;
+        background: #fff;
+        padding: 0.65rem 0.9rem;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .status-pill--active {
+        background: #2f6fed;
+        color: #fff;
+        border-color: #2f6fed;
+      }
+
+      .results-copy {
+        margin: 0 0 1rem 0;
+        color: #666;
+      }
+
+      .leads-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .lead-card {
+        padding: 1.25rem;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .lead-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .lead-status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.55rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        background: #f2f3f5;
+      }
+
+      .lead-meta,
+      .lead-notes {
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      .lead-meta p,
+      .lead-notes p {
+        margin: 0;
+        font-size: 0.98rem;
+      }
+
+      .lead-meta a {
+        color: #2f6fed;
+        text-decoration: none;
+      }
+
+      .lead-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .lead-tag {
+        display: inline-flex;
+        padding: 0.42rem 0.7rem;
+        border-radius: 999px;
+        background: #eff2f8;
+        color: #4a5670;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .lead-tag--opportunity {
+        background: #fff2dc;
+        color: #915d00;
+      }
+
+      @media (max-width: 900px) {
+        .leads-summary-grid,
+        .leads-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .toolbar-row,
+        .lead-card-top {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <script src="/assets/js/navbar.js" defer></script>
+    <div id="navbar"></div>
+
+    <script>
+      fetch('/navbar.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('navbar').innerHTML = data;
+        })
+        .catch((error) => console.error('Error loading navbar:', error));
+    </script>
+
+    <article class="wrapper style5">
+      <div class="container leads-shell">
+        <div class="leads-hero">
+          <header>
+            <h1>Leads</h1>
+            <p class="subheader">A simple working page for website outreach and follow-up.</p>
+          </header>
+          <p>
+            Use this to skim businesses quickly, avoid duplicate outreach, and keep status updates visible from desktop or phone.
+          </p>
+          <div class="leads-summary-grid">
+            <div class="summary-stat">
+              <span class="summary-number" id="summary-total">—</span>
+              <span class="summary-label">Total</span>
+            </div>
+            <div class="summary-stat">
+              <span class="summary-number" id="summary-active">—</span>
+              <span class="summary-label">🟢 Active</span>
+            </div>
+            <div class="summary-stat">
+              <span class="summary-number" id="summary-check">—</span>
+              <span class="summary-label">🟡 Check</span>
+            </div>
+            <div class="summary-stat">
+              <span class="summary-number" id="summary-parked">—</span>
+              <span class="summary-label">🔴 Parked</span>
+            </div>
+          </div>
+          <p class="results-copy">Updated: <span id="summary-updated">—</span></p>
+        </div>
+
+        <div class="leads-controls">
+          <div class="leads-toolbar">
+            <label class="search-field" for="lead-search">
+              <input type="search" id="lead-search" placeholder="Search business, suburb, website, email, phone" />
+            </label>
+            <div class="toolbar-row">
+              <div class="status-pills" id="status-pills"></div>
+              <label class="sort-field" for="sort-by">
+                <span>Sort</span>
+                <select id="sort-by">
+                  <option value="opportunity_desc">Website opportunity: highest first</option>
+                  <option value="opportunity_asc">Website opportunity: lowest first</option>
+                  <option value="name_asc">Business name: A to Z</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <p class="results-copy" id="results-copy">Loading leads…</p>
+        <div class="leads-grid" id="leads-grid"></div>
+      </div>
+    </article>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+      const statusLabels = {
+        all: 'All',
+        approved_for_outreach: '🟢 Active',
+        contacted: '🔵 Contacted',
+        replied_not_interested: '⚫ Not interested',
+        follow_up_later: '🟣 Follow up later',
+        won: '⭐ Won',
+        needs_manual_review: '🟡 Check',
+        rejected: '🔴 Parked',
+      };
+
+      let leads = [];
+      let activeStatus = 'all';
+      let searchTerm = '';
+      let sortMode = 'opportunity_desc';
+
+      function escapeHtml(value) {
+        return String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function formatStatus(value) {
+        return statusLabels[value] || value.replace(/_/g, ' ');
+      }
+
+      function renderSummary(summary, updatedAt) {
+        document.getElementById('summary-total').textContent = summary.total_leads ?? 0;
+        document.getElementById('summary-active').textContent = summary.approved_for_outreach ?? 0;
+        document.getElementById('summary-check').textContent = summary.needs_manual_review ?? 0;
+        document.getElementById('summary-parked').textContent = summary.rejected ?? 0;
+        document.getElementById('summary-updated').textContent = updatedAt || 'Unknown';
+      }
+
+      function renderPills() {
+        const wrap = document.getElementById('status-pills');
+        const counts = leads.reduce((acc, lead) => {
+          acc[lead.outreach_status] = (acc[lead.outreach_status] || 0) + 1;
+          return acc;
+        }, {});
+        const order = ['all', 'approved_for_outreach', 'contacted', 'follow_up_later', 'won', 'needs_manual_review', 'replied_not_interested', 'rejected'];
+        wrap.innerHTML = order.map((key) => {
+          const count = key === 'all' ? leads.length : counts[key] || 0;
+          const activeClass = key === activeStatus ? ' status-pill--active' : '';
+          return `<button class="status-pill${activeClass}" data-status="${key}" type="button">${escapeHtml(formatStatus(key))} <span>${count}</span></button>`;
+        }).join('');
+        wrap.querySelectorAll('.status-pill').forEach((button) => {
+          button.addEventListener('click', () => {
+            activeStatus = button.dataset.status;
+            renderPills();
+            renderLeads();
+          });
+        });
+      }
+
+      function getFilteredLeads() {
+        const filtered = leads.filter((lead) => {
+          const matchesStatus = activeStatus === 'all' || lead.outreach_status === activeStatus;
+          if (!matchesStatus) return false;
+          if (!searchTerm) return true;
+          const haystack = [
+            lead.business_name,
+            lead.suburb,
+            lead.website,
+            lead.contact_email,
+            lead.phone,
+            lead.outreach_status,
+            lead.notes,
+            lead.website_status,
+            Array.isArray(lead.website_red_flags) ? lead.website_red_flags.join(' ') : '',
+            lead.website_priority_reason,
+          ].filter(Boolean).join(' ').toLowerCase();
+          return haystack.includes(searchTerm);
+        });
+
+        filtered.sort((a, b) => {
+          if (sortMode === 'name_asc') {
+            return (a.business_name || '').localeCompare(b.business_name || '');
+          }
+          if (sortMode === 'opportunity_asc') {
+            return (a.website_pain_score || 0) - (b.website_pain_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
+          }
+          return (b.website_pain_score || 0) - (a.website_pain_score || 0) || (b.confidence_score || 0) - (a.confidence_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
+        });
+
+        return filtered;
+      }
+
+      function renderLeads() {
+        const items = getFilteredLeads();
+        document.getElementById('results-copy').textContent = `${items.length} lead${items.length === 1 ? '' : 's'} shown.`;
+        const grid = document.getElementById('leads-grid');
+
+        if (!items.length) {
+          grid.innerHTML = '<div class="lead-card"><h2>No matching leads.</h2><p>Try a different search or filter.</p></div>';
+          return;
+        }
+
+        grid.innerHTML = items.map((lead) => {
+          const websiteUrl = lead.website ? escapeHtml(lead.website) : '';
+          const cleanWebsite = lead.website ? lead.website.replace(/^https?:\/\//, '').replace(/\/$/, '') : 'No website';
+          return `
+            <article class="lead-card">
+              <div class="lead-card-top">
+                <div>
+                  <h2>${escapeHtml(lead.business_name)}</h2>
+                  <p>${escapeHtml(lead.suburb || 'Auckland')}</p>
+                </div>
+                <span class="lead-status-badge">${escapeHtml(formatStatus(lead.outreach_status))}</span>
+              </div>
+              <div class="lead-meta">
+                <p><strong>Website:</strong> ${websiteUrl ? `<a href="${websiteUrl}" target="_blank" rel="noreferrer">${escapeHtml(cleanWebsite)}</a>` : '—'}</p>
+                <p><strong>Email:</strong> ${lead.contact_email ? `<a href="mailto:${escapeHtml(lead.contact_email)}">${escapeHtml(lead.contact_email)}</a>` : '—'}</p>
+                <p><strong>Phone:</strong> ${lead.phone ? `<a href="tel:${escapeHtml(String(lead.phone).replace(/\s+/g, ''))}">${escapeHtml(lead.phone)}</a>` : '—'}</p>
+              </div>
+              <div class="lead-tags">
+                <span class="lead-tag">${escapeHtml(formatStatus(lead.verification_status))}</span>
+                <span class="lead-tag">Confidence ${escapeHtml(lead.confidence_score ?? '—')}</span>
+                <span class="lead-tag">Website ${escapeHtml(lead.website_status || 'unknown')}</span>
+                <span class="lead-tag lead-tag--opportunity">Opportunity ${escapeHtml(lead.website_pain_score ?? '—')}/5</span>
+              </div>
+              <div class="lead-notes">
+                <p><strong>Website note:</strong> ${escapeHtml(lead.website_priority_reason || '—')}</p>
+                <p><strong>Website details:</strong> ${escapeHtml(Array.isArray(lead.website_red_flags) && lead.website_red_flags.length ? lead.website_red_flags.join(', ') : '—')}</p>
+                <p><strong>Last contacted:</strong> ${escapeHtml(lead.last_contacted_at || '—')}</p>
+                <p><strong>Outcome:</strong> ${escapeHtml(lead.outcome || '—')}</p>
+                <p><strong>Next follow-up:</strong> ${escapeHtml(lead.next_follow_up_at || '—')}</p>
+                <p><strong>Notes:</strong> ${escapeHtml(lead.notes || '—')}</p>
+              </div>
+            </article>`;
+        }).join('');
+      }
+
+      fetch('/data/leads.json')
+        .then((r) => r.json())
+        .then((data) => {
+          leads = Array.isArray(data.leads) ? data.leads : [];
+          renderSummary(data.summary || {}, data.updated_at);
+          renderPills();
+          renderLeads();
+        })
+        .catch(() => {
+          document.getElementById('results-copy').textContent = 'Could not load leads data.';
+        });
+
+      document.getElementById('lead-search').addEventListener('input', (event) => {
+        searchTerm = event.target.value.trim().toLowerCase();
+        renderLeads();
+      });
+
+      document.getElementById('sort-by').addEventListener('change', (event) => {
+        sortMode = event.target.value;
+        renderLeads();
+      });
+    </script>
+  </body>
+</html>
