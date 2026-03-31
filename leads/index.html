@@ -388,7 +388,17 @@
           return haystack.includes(searchTerm);
         });
 
+        const statusRank = (lead) => {
+          if (lead.outreach_status === 'rejected') return 99;
+          if (lead.outreach_status === 'replied_not_interested') return 98;
+          if (lead.outreach_status === 'needs_manual_review') return 50;
+          return 0;
+        };
+
         filtered.sort((a, b) => {
+          const rankDiff = statusRank(a) - statusRank(b);
+          if (rankDiff !== 0) return rankDiff;
+
           if (sortMode === 'name_asc') {
             return (a.business_name || '').localeCompare(b.business_name || '');
           }
