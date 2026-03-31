@@ -22,14 +22,13 @@
         max-width: 780px;
       }
 
-      .leads-summary-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1rem;
+      .summary-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
         margin-top: 1rem;
       }
 
-      .summary-stat,
       .leads-controls,
       .lead-card {
         background: #fff;
@@ -37,19 +36,43 @@
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       }
 
-      .summary-stat {
-        padding: 1rem 1.1rem;
+      .summary-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 0.95rem;
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        font-size: 0.95rem;
       }
 
-      .summary-number {
-        display: block;
-        font-size: 2rem;
+      .summary-chip-number {
+        font-size: 1.05rem;
         font-weight: 700;
+        color: #111;
       }
 
-      .summary-label {
+      .summary-chip-label,
+      .summary-chip-date {
         color: #666;
         font-size: 0.95rem;
+      }
+
+      .summary-chip--active {
+        background: #f1fff1;
+      }
+
+      .summary-chip--check {
+        background: #fff9df;
+      }
+
+      .summary-chip--parked {
+        background: #fff1f1;
+      }
+
+      .summary-chip--updated {
+        background: #f5f7fb;
       }
 
       .leads-controls {
@@ -182,13 +205,29 @@
       }
 
       @media (max-width: 900px) {
-        .leads-summary-grid,
         .leads-grid {
           grid-template-columns: 1fr;
         }
       }
 
       @media (max-width: 640px) {
+        .summary-bar {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.5rem;
+        }
+
+        .summary-chip {
+          min-width: 0;
+          justify-content: center;
+          flex-wrap: wrap;
+          text-align: center;
+        }
+
+        .summary-chip--updated {
+          grid-column: 1 / -1;
+        }
+
         .toolbar-row,
         .lead-card-top {
           flex-direction: column;
@@ -216,25 +255,28 @@
           <header>
             <h1>Leads</h1>
           </header>
-          <div class="leads-summary-grid">
-            <div class="summary-stat">
-              <span class="summary-number" id="summary-total">—</span>
-              <span class="summary-label">Total</span>
+          <div class="summary-bar">
+            <div class="summary-chip">
+              <span class="summary-chip-number" id="summary-total">—</span>
+              <span class="summary-chip-label">Total</span>
             </div>
-            <div class="summary-stat">
-              <span class="summary-number" id="summary-active">—</span>
-              <span class="summary-label">🟢 Active</span>
+            <div class="summary-chip summary-chip--active">
+              <span class="summary-chip-number" id="summary-active">—</span>
+              <span class="summary-chip-label">🟢 Active</span>
             </div>
-            <div class="summary-stat">
-              <span class="summary-number" id="summary-check">—</span>
-              <span class="summary-label">🟡 Check</span>
+            <div class="summary-chip summary-chip--check">
+              <span class="summary-chip-number" id="summary-check">—</span>
+              <span class="summary-chip-label">🟡 Check</span>
             </div>
-            <div class="summary-stat">
-              <span class="summary-number" id="summary-parked">—</span>
-              <span class="summary-label">🔴 Parked</span>
+            <div class="summary-chip summary-chip--parked">
+              <span class="summary-chip-number" id="summary-parked">—</span>
+              <span class="summary-chip-label">🔴 Parked</span>
+            </div>
+            <div class="summary-chip summary-chip--updated">
+              <span class="summary-chip-label">Updated</span>
+              <span class="summary-chip-date" id="summary-updated">—</span>
             </div>
           </div>
-          <p class="results-copy">Updated: <span id="summary-updated">—</span></p>
         </div>
 
         <div class="leads-controls">
