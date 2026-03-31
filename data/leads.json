@@ -2,9 +2,9 @@
   "updated_at": "2026-03-31",
   "summary": {
     "total_leads": 30,
-    "approved_for_outreach": 18,
-    "needs_manual_review": 2,
-    "rejected": 10,
+    "approved_for_outreach": 20,
+    "needs_manual_review": 4,
+    "rejected": 6,
     "contacted": 0,
     "replied_not_interested": 0,
     "follow_up_later": 0,
@@ -408,7 +408,7 @@
         "weak_cta"
       ],
       "website_priority_reason": "No usable website or the current site could not be verified cleanly.",
-      "outreach_status": "rejected",
+      "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
       "next_follow_up_at": null,
@@ -431,7 +431,7 @@
         "site_unreachable"
       ],
       "website_priority_reason": "No usable website or the current site could not be verified cleanly.",
-      "outreach_status": "rejected",
+      "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
       "next_follow_up_at": null,
@@ -549,7 +549,7 @@
         "site_unreachable"
       ],
       "website_priority_reason": "No usable website or the current site could not be verified cleanly.",
-      "outreach_status": "rejected",
+      "outreach_status": "needs_manual_review",
       "last_contacted_at": null,
       "outcome": null,
       "next_follow_up_at": null,
@@ -573,7 +573,7 @@
         "missing_contact_clarity"
       ],
       "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
-      "outreach_status": "rejected",
+      "outreach_status": "needs_manual_review",
       "last_contacted_at": null,
       "outcome": null,
       "next_follow_up_at": null,
