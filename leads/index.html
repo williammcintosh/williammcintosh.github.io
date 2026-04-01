@@ -403,9 +403,9 @@
             return (a.business_name || '').localeCompare(b.business_name || '');
           }
           if (sortMode === 'opportunity_asc') {
-            return (a.website_pain_score || 0) - (b.website_pain_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
+            return (a.opportunity_score || a.website_pain_score || 0) - (b.opportunity_score || b.website_pain_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
           }
-          return (b.website_pain_score || 0) - (a.website_pain_score || 0) || (b.confidence_score || 0) - (a.confidence_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
+          return (b.opportunity_score || b.website_pain_score || 0) - (a.opportunity_score || a.website_pain_score || 0) || (b.confidence_score || 0) - (a.confidence_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
         });
 
         return filtered;
@@ -442,10 +442,13 @@
                 <span class="lead-tag">${escapeHtml(formatStatus(lead.verification_status))}</span>
                 <span class="lead-tag">Confidence ${escapeHtml(lead.confidence_score ?? '—')}</span>
                 <span class="lead-tag">Website ${escapeHtml(lead.website_status || 'unknown')}</span>
-                <span class="lead-tag lead-tag--opportunity">Opportunity ${escapeHtml(lead.website_pain_score ?? '—')}/5</span>
+                <span class="lead-tag">Site quality ${escapeHtml(lead.site_quality_score ?? '—')}/5</span>
+                <span class="lead-tag lead-tag--opportunity">Opportunity ${escapeHtml(lead.opportunity_score ?? lead.website_pain_score ?? '—')}/5</span>
               </div>
               <div class="lead-notes">
                 <p><strong>Website note:</strong> ${escapeHtml(lead.website_priority_reason || '—')}</p>
+                <p><strong>Site quality:</strong> ${escapeHtml(lead.site_quality_label || '—')} (${escapeHtml(lead.site_quality_score ?? '—')}/5)</p>
+                <p><strong>Opportunity:</strong> ${escapeHtml(lead.opportunity_label || '—')} (${escapeHtml(lead.opportunity_score ?? lead.website_pain_score ?? '—')}/5)</p>
                 <p><strong>Website details:</strong> ${escapeHtml(Array.isArray(lead.website_red_flags) && lead.website_red_flags.length ? lead.website_red_flags.join(', ') : '—')}</p>
                 <p><strong>Last contacted:</strong> ${escapeHtml(lead.last_contacted_at || '—')}</p>
                 <p><strong>Outcome:</strong> ${escapeHtml(lead.outcome || '—')}</p>
