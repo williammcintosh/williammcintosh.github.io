@@ -22,14 +22,12 @@
       "verification_status": "verified",
       "confidence_score": 95,
       "fit_label": "A",
-      "website_status": "poor",
-      "website_pain_score": 4,
+      "website_status": "average",
+      "website_pain_score": 2,
       "website_red_flags": [
-        "dated_design",
-        "thin_trust_signals",
-        "messy_or_template_feel"
+        "thin_trust_signals"
       ],
-      "website_priority_reason": "Visible website pain and weak presentation make this an obvious overhaul candidate.",
+      "website_priority_reason": "Usable site with a clear CTA and offer; bigger opportunity is adding stronger trust signals rather than a full overhaul.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
