@@ -75,6 +75,14 @@
         background: #f5f7fb;
       }
 
+      .summary-chip--due {
+        background: #fff5d6;
+      }
+
+      .summary-chip--overdue {
+        background: #ffe4e1;
+      }
+
       .leads-controls {
         padding: 1rem;
         margin-bottom: 1.5rem;
@@ -272,6 +280,14 @@
               <span class="summary-chip-number" id="summary-parked">—</span>
               <span class="summary-chip-label">🔴 Parked</span>
             </div>
+            <div class="summary-chip summary-chip--due">
+              <span class="summary-chip-number" id="summary-due">—</span>
+              <span class="summary-chip-label">🟣 Due soon</span>
+            </div>
+            <div class="summary-chip summary-chip--overdue">
+              <span class="summary-chip-number" id="summary-overdue">—</span>
+              <span class="summary-chip-label">⏰ Overdue</span>
+            </div>
             <div class="summary-chip summary-chip--updated">
               <span class="summary-chip-label">Updated</span>
               <span class="summary-chip-date" id="summary-updated">—</span>
@@ -290,6 +306,7 @@
                 <span>Sort</span>
                 <select id="sort-by">
                   <option value="opportunity_desc">Website opportunity: highest first</option>
+                  <option value="follow_up_asc">Follow-up date: soonest first</option>
                   <option value="opportunity_asc">Website opportunity: lowest first</option>
                   <option value="name_asc">Business name: A to Z</option>
                 </select>
@@ -319,12 +336,33 @@
         won: '⭐ Won',
         needs_manual_review: '🟡 Check',
         rejected: '🔴 Parked',
+        due_follow_ups: '🟣 Due soon',
+        overdue_follow_ups: '⏰ Overdue',
       };
 
       let leads = [];
       let activeStatus = 'all';
       let searchTerm = '';
       let sortMode = 'opportunity_desc';
+
+      function startOfDay(value) {
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return null;
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      }
+
+      function getFollowUpState(lead) {
+        const raw = lead.next_follow_up_at;
+        if (!raw) return null;
+        const target = startOfDay(raw);
+        if (!target) return null;
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const diffDays = Math.round((target - today) / 86400000);
+        if (diffDays < 0) return 'overdue';
+        if (diffDays <= 7) return 'due';
+        return 'upcoming';
+      }
 
       function escapeHtml(value) {
         return String(value || '')
@@ -340,10 +378,14 @@
       }
 
       function renderSummary(summary, updatedAt) {
+        const dueSoon = leads.filter((lead) => getFollowUpState(lead) === 'due').length;
+        const overdue = leads.filter((lead) => getFollowUpState(lead) === 'overdue').length;
         document.getElementById('summary-total').textContent = summary.total_leads ?? 0;
         document.getElementById('summary-active').textContent = summary.approved_for_outreach ?? 0;
         document.getElementById('summary-check').textContent = summary.needs_manual_review ?? 0;
         document.getElementById('summary-parked').textContent = summary.rejected ?? 0;
+        document.getElementById('summary-due').textContent = dueSoon;
+        document.getElementById('summary-overdue').textContent = overdue;
         document.getElementById('summary-updated').textContent = updatedAt || 'Unknown';
       }
 
@@ -351,9 +393,12 @@
         const wrap = document.getElementById('status-pills');
         const counts = leads.reduce((acc, lead) => {
           acc[lead.outreach_status] = (acc[lead.outreach_status] || 0) + 1;
+          const followUpState = getFollowUpState(lead);
+          if (followUpState === 'due') acc.due_follow_ups = (acc.due_follow_ups || 0) + 1;
+          if (followUpState === 'overdue') acc.overdue_follow_ups = (acc.overdue_follow_ups || 0) + 1;
           return acc;
         }, {});
-        const order = ['all', 'approved_for_outreach', 'contacted', 'follow_up_later', 'won', 'needs_manual_review', 'replied_not_interested', 'rejected'];
+        const order = ['all', 'overdue_follow_ups', 'due_follow_ups', 'approved_for_outreach', 'contacted', 'follow_up_later', 'won', 'needs_manual_review', 'replied_not_interested', 'rejected'];
         wrap.innerHTML = order.map((key) => {
           const count = key === 'all' ? leads.length : counts[key] || 0;
           const activeClass = key === activeStatus ? ' status-pill--active' : '';
@@ -370,7 +415,11 @@
 
       function getFilteredLeads() {
         const filtered = leads.filter((lead) => {
-          const matchesStatus = activeStatus === 'all' || lead.outreach_status === activeStatus;
+          const followUpState = getFollowUpState(lead);
+          const matchesStatus = activeStatus === 'all'
+            || lead.outreach_status === activeStatus
+            || (activeStatus === 'due_follow_ups' && followUpState === 'due')
+            || (activeStatus === 'overdue_follow_ups' && followUpState === 'overdue');
           if (!matchesStatus) return false;
           if (!searchTerm) return true;
           const haystack = [
@@ -393,6 +442,9 @@
         });
 
         const statusRank = (lead) => {
+          const followUpState = getFollowUpState(lead);
+          if (followUpState === 'overdue') return -20;
+          if (followUpState === 'due') return -10;
           if (lead.outreach_status === 'rejected') return 99;
           if (lead.outreach_status === 'replied_not_interested') return 98;
           if (lead.outreach_status === 'needs_manual_review') return 50;
@@ -406,10 +458,15 @@
           if (sortMode === 'name_asc') {
             return (a.business_name || '').localeCompare(b.business_name || '');
           }
+          if (sortMode === 'follow_up_asc') {
+            const aDate = a.next_follow_up_at || '9999-12-31';
+            const bDate = b.next_follow_up_at || '9999-12-31';
+            return aDate.localeCompare(bDate) || (a.business_name || '').localeCompare(b.business_name || '');
+          }
           if (sortMode === 'opportunity_asc') {
             return (a.opportunity_score || a.website_pain_score || 0) - (b.opportunity_score || b.website_pain_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
           }
-          return (b.opportunity_score || b.website_pain_score || 0) - (a.opportunity_score || a.website_pain_score || 0) || (b.confidence_score || 0) - (a.confidence_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
+          return (b.opportunity_score || b.website_pain_score || 0) - (a.opportunity_score || a.website_pain_score || 0) || (a.next_follow_up_at || '9999-12-31').localeCompare(b.next_follow_up_at || '9999-12-31') || (b.confidence_score || 0) - (a.confidence_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
         });
 
         return filtered;
@@ -428,6 +485,8 @@
         grid.innerHTML = items.map((lead) => {
           const websiteUrl = lead.website ? escapeHtml(lead.website) : '';
           const cleanWebsite = lead.website ? lead.website.replace(/^https?:\/\//, '').replace(/\/$/, '') : 'No website';
+          const followUpState = getFollowUpState(lead);
+          const followUpLabel = followUpState === 'overdue' ? '⏰ Overdue follow-up' : (followUpState === 'due' ? '🟣 Due soon' : '');
           return `
             <article class="lead-card">
               <div class="lead-card-top">
@@ -448,6 +507,7 @@
                 <span class="lead-tag">Website ${escapeHtml(lead.website_status || 'unknown')}</span>
                 <span class="lead-tag">Site quality ${escapeHtml(lead.site_quality_score ?? '—')}/5</span>
                 <span class="lead-tag lead-tag--opportunity">Opportunity ${escapeHtml(lead.opportunity_score ?? lead.website_pain_score ?? '—')}/5</span>
+                ${followUpLabel ? `<span class="lead-tag">${escapeHtml(followUpLabel)}</span>` : ''}
               </div>
               <div class="lead-notes">
                 <p><strong>Website note:</strong> ${escapeHtml(lead.website_priority_reason || '—')}</p>
