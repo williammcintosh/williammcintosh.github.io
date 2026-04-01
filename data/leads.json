@@ -27,12 +27,12 @@
       "website_red_flags": [
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Usable site with a clear CTA and offer; bigger opportunity is adding stronger trust signals rather than a full overhaul.",
+      "website_priority_reason": "Usable site with a clearer opportunity in trust-building and polish than a full overhaul.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
       "next_follow_up_at": null,
-      "notes": null
+      "notes": "Regraded under revised website rubric: clear CTA/offer, lower-priority trust/polish opportunity."
     },
     {
       "lead_id": "akl-trades-bpm-electrical-ltd-afef0a",
@@ -49,10 +49,9 @@
       "website_pain_score": 4,
       "website_red_flags": [
         "weak_cta",
-        "thin_trust_signals",
-        "messy_or_template_feel"
+        "thin_trust_signals"
       ],
-      "website_priority_reason": "Visible website pain and weak presentation make this an obvious overhaul candidate.",
+      "website_priority_reason": "Clear conversion friction or credibility gaps make this a strong improvement candidate.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -73,11 +72,11 @@
       "website_status": "poor",
       "website_pain_score": 4,
       "website_red_flags": [
-        "dated_design",
+        "outdated_design",
         "weak_cta",
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Visible website pain and weak presentation make this an obvious overhaul candidate.",
+      "website_priority_reason": "Clear conversion friction or credibility gaps make this a strong improvement candidate.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -98,11 +97,11 @@
       "website_status": "poor",
       "website_pain_score": 4,
       "website_red_flags": [
-        "dated_design",
+        "outdated_design",
         "weak_cta",
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Visible website pain and weak presentation make this an obvious overhaul candidate.",
+      "website_priority_reason": "Clear conversion friction or credibility gaps make this a strong improvement candidate.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -123,9 +122,9 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "messy_or_template_feel"
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": "2026-03-31",
       "outcome": null,
@@ -146,10 +145,9 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "weak_cta",
-        "messy_or_template_feel"
+        "weak_cta"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -172,7 +170,7 @@
       "website_red_flags": [
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -193,9 +191,9 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "messy_or_template_feel"
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -216,10 +214,10 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "dated_design",
-        "messy_or_template_feel"
+        "outdated_design",
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -242,7 +240,7 @@
       "website_red_flags": [
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -263,10 +261,10 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "dated_design",
+        "outdated_design",
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -287,9 +285,9 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "dated_design"
+        "outdated_design"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -310,9 +308,9 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "dated_design"
+        "outdated_design"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -335,7 +333,7 @@
       "website_red_flags": [
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -358,7 +356,7 @@
       "website_red_flags": [
         "broad_or_unclear_positioning"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -381,7 +379,7 @@
       "website_red_flags": [
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -453,7 +451,7 @@
         "thin_trust_signals",
         "missing_contact_clarity"
       ],
-      "website_priority_reason": "Visible website pain and weak presentation make this an obvious overhaul candidate.",
+      "website_priority_reason": "Clear conversion friction or credibility gaps make this a strong improvement candidate.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -476,7 +474,7 @@
       "website_red_flags": [
         "thin_trust_signals"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "approved_for_outreach",
       "last_contacted_at": null,
       "outcome": null,
@@ -497,10 +495,10 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "dated_design",
-        "messy_or_template_feel"
+        "outdated_design",
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "needs_manual_review",
       "last_contacted_at": null,
       "outcome": null,
@@ -521,9 +519,9 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "messy_or_template_feel"
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "needs_manual_review",
       "last_contacted_at": null,
       "outcome": null,
@@ -567,10 +565,10 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "messy_or_template_feel",
-        "missing_contact_clarity"
+        "missing_contact_clarity",
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "needs_manual_review",
       "last_contacted_at": null,
       "outcome": null,
@@ -591,10 +589,10 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "messy_or_template_feel",
-        "broad_or_unclear_positioning"
+        "broad_or_unclear_positioning",
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "rejected",
       "last_contacted_at": null,
       "outcome": null,
@@ -617,7 +615,7 @@
       "website_red_flags": [
         "broad_or_unclear_positioning"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "rejected",
       "last_contacted_at": null,
       "outcome": null,
@@ -641,7 +639,7 @@
         "weak_cta",
         "broad_or_unclear_positioning"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "rejected",
       "last_contacted_at": null,
       "outcome": null,
@@ -662,10 +660,10 @@
       "website_status": "outdated",
       "website_pain_score": 3,
       "website_red_flags": [
-        "messy_or_template_feel",
-        "missing_contact_clarity"
+        "missing_contact_clarity",
+        "generic_presentation"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "rejected",
       "last_contacted_at": null,
       "outcome": null,
@@ -713,7 +711,7 @@
         "missing_contact_clarity",
         "broad_or_unclear_positioning"
       ],
-      "website_priority_reason": "Site is usable but dated, thin, or conversion-weak enough to be worth contacting.",
+      "website_priority_reason": "Usable site with some dated presentation or weaker proof, but not severe conversion friction.",
       "outreach_status": "rejected",
       "last_contacted_at": null,
       "outcome": null,
