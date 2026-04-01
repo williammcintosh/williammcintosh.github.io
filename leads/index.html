@@ -384,6 +384,10 @@
             lead.website_status,
             Array.isArray(lead.website_red_flags) ? lead.website_red_flags.join(' ') : '',
             lead.website_priority_reason,
+            lead.seo_primary_keyword,
+            lead.seo_brand_query,
+            lead.seo_target_location,
+            lead.seo_quick_audit_note,
           ].filter(Boolean).join(' ').toLowerCase();
           return haystack.includes(searchTerm);
         });
@@ -449,6 +453,11 @@
                 <p><strong>Website note:</strong> ${escapeHtml(lead.website_priority_reason || '—')}</p>
                 <p><strong>Site quality:</strong> ${escapeHtml(lead.site_quality_label || '—')} (${escapeHtml(lead.site_quality_score ?? '—')}/5)</p>
                 <p><strong>Opportunity:</strong> ${escapeHtml(lead.opportunity_label || '—')} (${escapeHtml(lead.opportunity_score ?? lead.website_pain_score ?? '—')}/5)</p>
+                <p><strong>SEO primary keyword:</strong> ${escapeHtml(lead.seo_primary_keyword || '—')}</p>
+                <p><strong>SEO brand query:</strong> ${escapeHtml(lead.seo_brand_query || '—')}</p>
+                <p><strong>SEO location:</strong> ${escapeHtml(lead.seo_target_location || '—')}</p>
+                <p><strong>SEO opportunity:</strong> ${escapeHtml(lead.seo_opportunity_score ?? '—')}/5</p>
+                <p><strong>SEO note:</strong> ${escapeHtml(lead.seo_quick_audit_note || '—')}</p>
                 <p><strong>Website details:</strong> ${escapeHtml(Array.isArray(lead.website_red_flags) && lead.website_red_flags.length ? lead.website_red_flags.join(', ') : '—')}</p>
                 <p><strong>Last contacted:</strong> ${escapeHtml(lead.last_contacted_at || '—')}</p>
                 <p><strong>Outcome:</strong> ${escapeHtml(lead.outcome || '—')}</p>
