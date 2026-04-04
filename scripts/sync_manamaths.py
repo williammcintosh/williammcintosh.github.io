@@ -75,13 +75,12 @@ def render_page(objectives: list[dict]) -> str:
         cards = []
         for pdf in objective['pdfs']:
             href = f"/manamaths/pdfs/{objective['slug']}/{pdf['file_name']}"
-            preview_href = f"{href}#zoom=25&view=Fit&toolbar=0&navpanes=0&scrollbar=0"
             cards.append(
                 f'''<article class="mm-card mm-worksheet-card">
   <a class="mm-preview-link" href="{html.escape(href)}" target="_blank" rel="noopener noreferrer" aria-label="Open {html.escape(pdf['label'])} PDF for {html.escape(objective['title'])}">
     <p class="mm-level">{html.escape(pdf['label'])}</p>
     <div class="mm-preview-frame">
-      <iframe src="{html.escape(preview_href)}" title="{html.escape(pdf['label'])} preview for {html.escape(objective['title'])}" loading="lazy"></iframe>
+      <canvas class="mm-pdf-preview" data-pdf="{html.escape(href)}" aria-label="{html.escape(pdf['label'])} preview for {html.escape(objective['title'])}"></canvas>
     </div>
     <p class="mm-card-note">Tap preview to open PDF</p>
   </a>
@@ -146,6 +145,60 @@ def render_page(objectives: list[dict]) -> str:
           document.querySelector('.default-contact').style.display = 'flex';
         }})
         .catch((error) => console.error('Error loading contact bar:', error));
+    </script>
+
+    <script type="module">
+      import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs';
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs';
+
+      async function renderPreview(canvas) {{
+        const pdfUrl = canvas.dataset.pdf;
+        if (!pdfUrl) return;
+
+        try {{
+          const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+          const page = await pdf.getPage(1);
+          const unscaledViewport = page.getViewport({{ scale: 1 }});
+          const frame = canvas.parentElement;
+          const targetWidth = Math.max(220, Math.floor(frame.clientWidth));
+          const scale = targetWidth / unscaledViewport.width;
+          const viewport = page.getViewport({{ scale }});
+          const context = canvas.getContext('2d');
+
+          const ratio = window.devicePixelRatio || 1;
+          canvas.width = Math.floor(viewport.width * ratio);
+          canvas.height = Math.floor(viewport.height * ratio);
+          canvas.style.width = `${{Math.floor(viewport.width)}}px`;
+          canvas.style.height = `${{Math.floor(viewport.height)}}px`;
+          context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+          await page.render({{ canvasContext: context, viewport }}).promise;
+          canvas.classList.add('is-ready');
+        }} catch (error) {{
+          console.error('Error rendering PDF preview:', pdfUrl, error);
+          canvas.classList.add('is-error');
+        }}
+      }}
+
+      function queueRender() {{
+        document.querySelectorAll('.mm-pdf-preview').forEach((canvas) => {{
+          if (canvas.dataset.rendered === 'true') return;
+          canvas.dataset.rendered = 'true';
+          renderPreview(canvas);
+        }});
+      }}
+
+      window.addEventListener('load', queueRender);
+      window.addEventListener('resize', () => {{
+        clearTimeout(window.__mmPdfResize);
+        window.__mmPdfResize = setTimeout(() => {{
+          document.querySelectorAll('.mm-pdf-preview').forEach((canvas) => {{
+            canvas.dataset.rendered = 'false';
+            canvas.classList.remove('is-ready', 'is-error');
+          }});
+          queueRender();
+        }}, 150);
+      }});
     </script>
 
     <script src="/assets/js/jquery.min.js"></script>

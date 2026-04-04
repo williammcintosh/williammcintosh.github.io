@@ -41,7 +41,7 @@
   <a class="mm-preview-link" href="/manamaths/pdfs/lo-yr9-equivalent-fractions/foundation-questions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Foundation PDF for Equivalent Fractions">
     <p class="mm-level">Foundation</p>
     <div class="mm-preview-frame">
-      <iframe src="/manamaths/pdfs/lo-yr9-equivalent-fractions/foundation-questions.pdf#zoom=25&amp;view=Fit&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" title="Foundation preview for Equivalent Fractions" loading="lazy"></iframe>
+      <canvas class="mm-pdf-preview" data-pdf="/manamaths/pdfs/lo-yr9-equivalent-fractions/foundation-questions.pdf" aria-label="Foundation preview for Equivalent Fractions"></canvas>
     </div>
     <p class="mm-card-note">Tap preview to open PDF</p>
   </a>
@@ -49,7 +49,7 @@
   <a class="mm-preview-link" href="/manamaths/pdfs/lo-yr9-equivalent-fractions/proficient-questions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Proficient PDF for Equivalent Fractions">
     <p class="mm-level">Proficient</p>
     <div class="mm-preview-frame">
-      <iframe src="/manamaths/pdfs/lo-yr9-equivalent-fractions/proficient-questions.pdf#zoom=25&amp;view=Fit&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" title="Proficient preview for Equivalent Fractions" loading="lazy"></iframe>
+      <canvas class="mm-pdf-preview" data-pdf="/manamaths/pdfs/lo-yr9-equivalent-fractions/proficient-questions.pdf" aria-label="Proficient preview for Equivalent Fractions"></canvas>
     </div>
     <p class="mm-card-note">Tap preview to open PDF</p>
   </a>
@@ -57,7 +57,7 @@
   <a class="mm-preview-link" href="/manamaths/pdfs/lo-yr9-equivalent-fractions/excellence-questions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Excellence PDF for Equivalent Fractions">
     <p class="mm-level">Excellence</p>
     <div class="mm-preview-frame">
-      <iframe src="/manamaths/pdfs/lo-yr9-equivalent-fractions/excellence-questions.pdf#zoom=25&amp;view=Fit&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" title="Excellence preview for Equivalent Fractions" loading="lazy"></iframe>
+      <canvas class="mm-pdf-preview" data-pdf="/manamaths/pdfs/lo-yr9-equivalent-fractions/excellence-questions.pdf" aria-label="Excellence preview for Equivalent Fractions"></canvas>
     </div>
     <p class="mm-card-note">Tap preview to open PDF</p>
   </a>
@@ -73,7 +73,7 @@
   <a class="mm-preview-link" href="/manamaths/pdfs/lo-yr9-forming-fractions/foundation-questions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Foundation PDF for Forming Fractions">
     <p class="mm-level">Foundation</p>
     <div class="mm-preview-frame">
-      <iframe src="/manamaths/pdfs/lo-yr9-forming-fractions/foundation-questions.pdf#zoom=25&amp;view=Fit&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" title="Foundation preview for Forming Fractions" loading="lazy"></iframe>
+      <canvas class="mm-pdf-preview" data-pdf="/manamaths/pdfs/lo-yr9-forming-fractions/foundation-questions.pdf" aria-label="Foundation preview for Forming Fractions"></canvas>
     </div>
     <p class="mm-card-note">Tap preview to open PDF</p>
   </a>
@@ -81,7 +81,7 @@
   <a class="mm-preview-link" href="/manamaths/pdfs/lo-yr9-forming-fractions/proficient-questions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Proficient PDF for Forming Fractions">
     <p class="mm-level">Proficient</p>
     <div class="mm-preview-frame">
-      <iframe src="/manamaths/pdfs/lo-yr9-forming-fractions/proficient-questions.pdf#zoom=25&amp;view=Fit&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" title="Proficient preview for Forming Fractions" loading="lazy"></iframe>
+      <canvas class="mm-pdf-preview" data-pdf="/manamaths/pdfs/lo-yr9-forming-fractions/proficient-questions.pdf" aria-label="Proficient preview for Forming Fractions"></canvas>
     </div>
     <p class="mm-card-note">Tap preview to open PDF</p>
   </a>
@@ -89,7 +89,7 @@
   <a class="mm-preview-link" href="/manamaths/pdfs/lo-yr9-forming-fractions/excellence-questions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Excellence PDF for Forming Fractions">
     <p class="mm-level">Excellence</p>
     <div class="mm-preview-frame">
-      <iframe src="/manamaths/pdfs/lo-yr9-forming-fractions/excellence-questions.pdf#zoom=25&amp;view=Fit&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" title="Excellence preview for Forming Fractions" loading="lazy"></iframe>
+      <canvas class="mm-pdf-preview" data-pdf="/manamaths/pdfs/lo-yr9-forming-fractions/excellence-questions.pdf" aria-label="Excellence preview for Forming Fractions"></canvas>
     </div>
     <p class="mm-card-note">Tap preview to open PDF</p>
   </a>
@@ -109,6 +109,60 @@
           document.querySelector('.default-contact').style.display = 'flex';
         })
         .catch((error) => console.error('Error loading contact bar:', error));
+    </script>
+
+    <script type="module">
+      import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs';
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs';
+
+      async function renderPreview(canvas) {
+        const pdfUrl = canvas.dataset.pdf;
+        if (!pdfUrl) return;
+
+        try {
+          const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+          const page = await pdf.getPage(1);
+          const unscaledViewport = page.getViewport({ scale: 1 });
+          const frame = canvas.parentElement;
+          const targetWidth = Math.max(220, Math.floor(frame.clientWidth));
+          const scale = targetWidth / unscaledViewport.width;
+          const viewport = page.getViewport({ scale });
+          const context = canvas.getContext('2d');
+
+          const ratio = window.devicePixelRatio || 1;
+          canvas.width = Math.floor(viewport.width * ratio);
+          canvas.height = Math.floor(viewport.height * ratio);
+          canvas.style.width = `${Math.floor(viewport.width)}px`;
+          canvas.style.height = `${Math.floor(viewport.height)}px`;
+          context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+          await page.render({ canvasContext: context, viewport }).promise;
+          canvas.classList.add('is-ready');
+        } catch (error) {
+          console.error('Error rendering PDF preview:', pdfUrl, error);
+          canvas.classList.add('is-error');
+        }
+      }
+
+      function queueRender() {
+        document.querySelectorAll('.mm-pdf-preview').forEach((canvas) => {
+          if (canvas.dataset.rendered === 'true') return;
+          canvas.dataset.rendered = 'true';
+          renderPreview(canvas);
+        });
+      }
+
+      window.addEventListener('load', queueRender);
+      window.addEventListener('resize', () => {
+        clearTimeout(window.__mmPdfResize);
+        window.__mmPdfResize = setTimeout(() => {
+          document.querySelectorAll('.mm-pdf-preview').forEach((canvas) => {
+            canvas.dataset.rendered = 'false';
+            canvas.classList.remove('is-ready', 'is-error');
+          });
+          queueRender();
+        }, 150);
+      });
     </script>
 
     <script src="/assets/js/jquery.min.js"></script>
