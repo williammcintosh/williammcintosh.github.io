@@ -75,7 +75,7 @@ def render_page(objectives: list[dict]) -> str:
         cards = []
         for pdf in objective['pdfs']:
             href = f"/manamaths/pdfs/{objective['slug']}/{pdf['file_name']}"
-            preview_href = f"{href}#view=FitH&toolbar=0&navpanes=0&scrollbar=0"
+            preview_href = f"{href}#view=Fit&toolbar=0&navpanes=0&scrollbar=0"
             cards.append(
                 f'''<article class="mm-card mm-worksheet-card">
   <a class="mm-preview-link" href="{html.escape(href)}" target="_blank" rel="noopener noreferrer" aria-label="Open {html.escape(pdf['label'])} PDF for {html.escape(objective['title'])}">

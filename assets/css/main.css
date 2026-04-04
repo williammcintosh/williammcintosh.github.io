@@ -196,7 +196,7 @@ p {
 }
 
 .mm-preview-frame {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1.414 / 1;
   overflow: hidden;
   border-radius: 12px;
   background: #dfe9f8;
@@ -243,6 +243,6 @@ p {
   }
 
   .mm-preview-frame {
-    aspect-ratio: 10 / 13;
+    aspect-ratio: 1.414 / 1;
   }
 }
