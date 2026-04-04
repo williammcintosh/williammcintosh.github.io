@@ -91,6 +91,148 @@ p {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.mm-page-wrapper {
+  padding-top: 7.5em;
+}
+
+.mm-page {
+  max-width: 1080px;
+}
+
+.mm-hero {
+  display: grid;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.mm-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85em;
+  font-weight: 700;
+  color: #4a6fa5;
+}
+
+.mm-lead {
+  font-size: 1.2em;
+  max-width: 48rem;
+}
+
+.mm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+}
+
+.mm-button {
+  display: inline-block;
+  padding: 0.8em 1.15em;
+  border-radius: 999px;
+  background: #4a6fa5;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.mm-button:hover {
+  background: #355784;
+}
+
+.mm-button-secondary {
+  background: #eef3fb;
+  color: #2d4668;
+}
+
+.mm-button-secondary:hover {
+  background: #dfe9f8;
+}
+
+.mm-summary-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.mm-card {
+  background: #f8f9fb;
+  border-radius: 16px;
+  padding: 1.25em;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.mm-stat-card {
+  text-align: center;
+}
+
+.mm-stat-number {
+  margin: 0;
+  font-size: 2.4em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mm-stat-label {
+  margin: 0.4em 0 0;
+}
+
+.mm-library-intro {
+  margin-bottom: 2em;
+}
+
+.mm-jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+}
+
+.mm-jump-links a,
+.mm-filename a {
+  color: #355784;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.mm-jump-links a:hover,
+.mm-filename a:hover {
+  text-decoration: underline;
+}
+
+.mm-objective-section {
+  margin-bottom: 2.5em;
+}
+
+.mm-section-heading {
+  margin-bottom: 1em;
+}
+
+.mm-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1em;
+}
+
+.mm-worksheet-card {
+  display: grid;
+  align-content: start;
+  gap: 0.75em;
+}
+
+.mm-level {
+  margin: 0;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4a6fa5;
+}
+
+.mm-filename {
+  margin: 0;
+  font-size: 0.95em;
+}
+
 @media (max-width: 768px) {
   .image.fit {
     float: none;
@@ -102,5 +244,15 @@ p {
   .image.fit img {
     display: block;
     margin: 0 auto;
+  }
+
+  .mm-summary-row,
+  .mm-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mm-button {
+    width: 100%;
+    text-align: center;
   }
 }
