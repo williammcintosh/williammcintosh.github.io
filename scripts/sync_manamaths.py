@@ -18,9 +18,9 @@ LEVEL_LABELS = {
     'excellence': 'Excellence',
 }
 LEVEL_DESCRIPTIONS = {
-    'foundation': 'Direct practice and accessible first-step questions.',
-    'proficient': 'More variety and more independent recognition work.',
-    'excellence': 'Richer reasoning, comparison, and multi-step thinking.',
+    'foundation': 'Foundation worksheet',
+    'proficient': 'Proficient worksheet',
+    'excellence': 'Excellence worksheet',
 }
 
 
@@ -68,8 +68,6 @@ def copy_pdfs(objectives: list[dict]) -> None:
 def render_page(objectives: list[dict]) -> str:
     sections = []
     jump_links = []
-    total_pdfs = sum(len(objective['pdfs']) for objective in objectives)
-
     for objective in objectives:
         jump_links.append(
             f'<a href="#{html.escape(objective["slug"])}">{html.escape(objective["title"])}</a>'
@@ -77,20 +75,23 @@ def render_page(objectives: list[dict]) -> str:
         cards = []
         for pdf in objective['pdfs']:
             href = f"/manamaths/pdfs/{objective['slug']}/{pdf['file_name']}"
+            preview_href = f"{href}#view=FitH&toolbar=0&navpanes=0&scrollbar=0"
             cards.append(
                 f'''<article class="mm-card mm-worksheet-card">
-  <p class="mm-level">{html.escape(pdf['label'])}</p>
-  <p>{html.escape(pdf['description'])}</p>
-  <p><a class="mm-button mm-button-secondary" href="{html.escape(href)}" target="_blank" rel="noopener noreferrer">Open PDF</a></p>
-  <p class="mm-filename"><a href="{html.escape(href)}" target="_blank" rel="noopener noreferrer">{html.escape(pdf['file_name'])}</a></p>
+  <a class="mm-preview-link" href="{html.escape(href)}" target="_blank" rel="noopener noreferrer" aria-label="Open {html.escape(pdf['label'])} PDF for {html.escape(objective['title'])}">
+    <p class="mm-level">{html.escape(pdf['label'])}</p>
+    <div class="mm-preview-frame">
+      <iframe src="{html.escape(preview_href)}" title="{html.escape(pdf['label'])} preview for {html.escape(objective['title'])}" loading="lazy"></iframe>
+    </div>
+    <p class="mm-card-note">Tap preview to open PDF</p>
+  </a>
 </article>'''
             )
         sections.append(
             f'''<section id="{html.escape(objective['slug'])}" class="mm-objective-section">
   <div class="mm-section-heading">
     <p class="mm-kicker">Learning objective</p>
-    <h2>{html.escape(objective['title'])}</h2>
-    <p>Foundation, Proficient, and Excellence worksheets for this objective.</p>
+    <h1>{html.escape(objective['title'])}</h1>
   </div>
   <div class="mm-card-grid">
     {''.join(cards)}
@@ -124,27 +125,10 @@ def render_page(objectives: list[dict]) -> str:
       <div class="container mm-page">
         <header class="mm-hero">
           <p class="mm-kicker">Mana Maths</p>
-          <h1>Worksheet PDFs by learning objective</h1>
-          <p class="mm-lead">Open the latest public worksheets directly as PDFs. Each learning objective groups its Foundation, Proficient, and Excellence files together.</p>
-          <div class="mm-actions">
-            <a class="mm-button" href="#mm-library">Browse worksheets</a>
-            <a class="mm-button mm-button-secondary" href="https://github.com/williammcintosh/manamaths" target="_blank" rel="noopener noreferrer">View repo</a>
-          </div>
+          <p class="mm-lead">Worksheet previews at a glance.</p>
         </header>
 
-        <section class="mm-summary-row">
-          <article class="mm-card mm-stat-card">
-            <p class="mm-stat-number">{len(objectives)}</p>
-            <p class="mm-stat-label">Learning objectives</p>
-          </article>
-          <article class="mm-card mm-stat-card">
-            <p class="mm-stat-number">{total_pdfs}</p>
-            <p class="mm-stat-label">Worksheet PDFs</p>
-          </article>
-        </section>
-
         <section id="mm-library" class="mm-library-intro">
-          <p class="mm-kicker">Quick links</p>
           <div class="mm-jump-links">{' '.join(jump_links)}</div>
         </section>
 
