@@ -461,13 +461,36 @@ ul:last-child {
 
 /* ---------- Routines ---------- */
 .phase-label {
-  margin: 2.75rem 0 1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 3.5rem 0 1.5rem;
+  padding: 0.7rem 1.2rem;
   font-family: var(--sans);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--teal);
+  line-height: 1.25;
+  border-radius: 0.7rem;
+  color: #fff;
+}
+
+.phase-label--enter {
+  margin-top: 2.85rem;
+  background: #c4472b;
+  color: #fff;
+}
+
+.phase-label--learn {
+  background: var(--teal);
+  color: #fff;
+}
+
+.phase-label--exit {
+  background: var(--gold);
+  color: #2a1d00;
 }
 
 .routines {
@@ -902,6 +925,17 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .phase-label {
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding: 0.7rem 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  .phase-label--enter {
+    margin-top: 2.4rem;
+  }
+
   .hero {
     padding-bottom: 2.5rem;
   }
@@ -1014,6 +1048,19 @@ footer p {
     color: #000 !important;
     box-shadow: none;
     border: 1px solid #222;
+  }
+
+
+  .phase-label,
+  .phase-label--enter,
+  .phase-label--learn,
+  .phase-label--exit {
+    background: #fff !important;
+    color: #000 !important;
+    border: 3px solid #000;
+    box-shadow: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .value h3,
