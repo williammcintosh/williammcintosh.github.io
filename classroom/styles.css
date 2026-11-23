@@ -1152,6 +1152,14 @@ footer p {
   margin-bottom: 1.35rem;
 }
 
+.refs-group {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--teal);
+  margin: 1.7rem 0 0.85rem;
+}
+
 .refs {
   list-style: none;
   margin: 0;
