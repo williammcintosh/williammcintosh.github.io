@@ -1124,6 +1124,18 @@ footer p {
   border-radius: 0.2em;
 }
 
+/* Citations inside the teal value card need light text. */
+.value--teal .cite a {
+  color: #f4fafa;
+}
+
+.value--teal .cite a:hover,
+.value--teal .cite a:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+
 .cite a:hover,
 .cite a:focus-visible {
   background: var(--mint);
